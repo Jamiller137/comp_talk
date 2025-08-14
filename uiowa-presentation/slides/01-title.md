@@ -1,15 +1,13 @@
-# Your Research Title
+# Mapper Stability and Visualization
 
-### Comprehensive Examination
+### Comprehensive Exam
 
-**Your Name**  
-Department of [Your Department]  
-University of Iowa  
-*Date*
+**Jacob Miller**
+
+Department of Mathematics
+
+*August 26th, 2025*
 
 <div class="uiowa-logo">
     <img src="images/uiowa-logo.png" alt="University of Iowa" style="height: 80px;">
 </div>
-
-Note: Welcome to my comprehensive exam presentation. Today I'll be discussing...
-
