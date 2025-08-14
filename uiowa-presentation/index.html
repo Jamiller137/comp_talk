@@ -56,7 +56,33 @@
     <script src="node_modules/reveal.js/plugin/notes/notes.js"></script>
     <script src="node_modules/reveal.js/plugin/markdown/markdown.js"></script>
     <script src="node_modules/reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="node_modules/reveal.js/plugin/math/math.js"></script>
     <script src="js/presentation.js"></script>
+    <script>
+    Reveal.initialize({
+        hash: true,
+        plugins: [ 
+            RevealMarkdown, 
+            RevealHighlight, 
+            RevealNotes, 
+            RevealMath.MathJax3 
+        ],
+        markdown: {
+            smartypants: false
+        },
+        math: {
+            mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+            config: 'TeX-AMS_HTML-full'
+        }
+    }).then(() => {
+        // Process any math that might have been added via HTML
+        if (window.MathJax) {
+            MathJax.typesetPromise();
+        }
+    });
+</script>
+
+    
 </body>
 </html>
 

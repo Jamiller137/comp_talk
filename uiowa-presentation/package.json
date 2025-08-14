@@ -3,13 +3,17 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000"
   },
-  "keywords": [],
+  "keywords": ["reveal.js", "presentation", "mathjax"],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "University of Iowa Comprehensive Exam Presentation",
   "dependencies": {
-    "reveal.js": "^5.2.1"
+    "reveal.js": "^4.6.1",
+    "mathjax": "^3.2.2"
   }
 }
+
