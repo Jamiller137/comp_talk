@@ -168,12 +168,4 @@
     padding: 0.2em 0.5em 0.2em 0.5em;
     border-bottom: 1px solid;
 }
-/* Custom math styling */
-.math-display {
-    margin: 1em 0;
-    text-align: center;
-}
 
-.math-inline {
-    display: inline;
-}

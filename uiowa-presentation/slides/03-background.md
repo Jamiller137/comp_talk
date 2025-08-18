@@ -2,7 +2,6 @@
 
 The use of tools from topology to extract and study data 'shape' across scales.
 
-**Key Insight**: Topology provides robust features that persist across noise and different scales, revealing the intrinsic geometric structure of data.
 
 
 ## Three Themes
@@ -12,6 +11,7 @@ The use of tools from topology to extract and study data 'shape' across scales.
 ### 2. Persistence and Stability
 
 ### 3. Visualization Methods
+
 
 
 ## Constructing Topological Spaces
@@ -25,7 +25,6 @@ The use of tools from topology to extract and study data 'shape' across scales.
 - Given point cloud $X = \{x_1, x_2, \ldots, x_n\} \subset \mathbb{R}^d$
 - Define proximity criterion based on distance threshold $\epsilon$
 - Build simplicial complex $K_\epsilon(X)$ where simplices represent local connectivity
-
 
 
 ## Vietoris-Rips Complex
@@ -45,7 +44,6 @@ if all pairwise distances satisfy:
 - Easy to compute
 - May include "hollow" simplices
 - Commonly used for persistent homology
-
 
 
 ## Čech Complex
@@ -80,37 +78,7 @@ for all $l \in \sigma$
 **Parameters**:
 - Number of landmarks $|L|$
 - Witness threshold $\epsilon$
-
-
-## Delaunay Complex
-
-**Definition**: For point cloud $X \subset \mathbb{R}^d$:
-
-Delaunay triangulation $Del(X)$ consists of simplices where the circumsphere contains no other points from $X$.
-
-**Alpha Complex Connection**:
-$$\alpha\text{-complex}_\alpha(X) = \{\sigma \in Del(X) : \text{circumradius}(\sigma) \leq \alpha\}$$
-
-**Properties**:
-- Dual to Voronoi diagram
-- Captures natural geometric structure
-- Well-defined for general position points
-
-
-## Alpha Complex
-
-**Definition**: Subcomplex of Delaunay triangulation where circumradius ≤ $\alpha$:
-
-$$A_\alpha(X) = \{\sigma \in Del(X) : R(\sigma) \leq \alpha\}$$
-
-where $R(\sigma)$ is the circumradius of simplex $\sigma$.
-
-**Filtration**: $A_{\alpha_1} \subseteq A_{\alpha_2} \subseteq \cdots$ for $\alpha_1 \leq \alpha_2 \leq \cdots$
-
-**Advantages**:
-- Geometrically meaningful
-- Fewer "artificial" simplices than Vietoris-Rips
-- Efficient computation in low dimensions
+- A version of Dulauney Complex for any metric space
 
 
 ## Mapper Complex
@@ -139,6 +107,7 @@ $$K_0 \subseteq K_1 \subseteq K_2 \subseteq \cdots \subseteq K_n$$
 
 **Birth-Death**: Feature appears at $K_i$ (birth) and disappears at $K_j$ (death) for $i < j$.
 
+
 **Persistence**: $\text{pers}(\text{feature}) = j - i$ or $\text{death} - \text{birth}$
 
 **Stability Theorem** (Cohen-Steiner, Edelsbrunner, Harer):
@@ -155,10 +124,12 @@ $$H_k(K_0) \to H_k(K_1) \to \cdots \to H_k(K_n)$$
 **$k$-th Persistent Betti Numbers**:
 $$\beta_k^{i,j} = \text{rank}(H_k(K_i) \to H_k(K_j))$$
 
+
 **Persistence Diagram**: Multiset of points $(b,d)$ where:
 - $b$ = birth time
 - $d$ = death time
 - Points above diagonal $y = x$ represent persistent features
+
 
 **Barcode**: Alternative visualization showing feature lifespans as intervals $[b,d)$
 
@@ -174,9 +145,11 @@ $$d_B(D_1, D_2) = \inf_{\gamma} \sup_{p \in D_1} \|p - \gamma(p)\|_\infty$$
 - **Filter Function**: Choice dramatically impacts results
 - **Clustering Method**: Different algorithms yield different structures
 
+
 **Theoretical Results**:
-- **Interleaving Distance**: Measures stability between Mapper constructions
+- **Filtrations and Interleaving**: Measures stability between Mapper constructions
 - **Multi-scale Approaches**: Use multiple parameter settings simultaneously
+
 
 **Practical Guidelines**:
 1. **Filter Function Selection**:
@@ -184,24 +157,22 @@ $$d_B(D_1, D_2) = \inf_{\gamma} \sup_{p \in D_1} \|p - \gamma(p)\|_\infty$$
    - Eccentricity: $f(x) = \sum_{y \in X} d(x,y)$
    - Coordinate projections: $f(x) = x_j$ for dimension $j$
 
-2. **Parameter Ranges**:
-   - Resolution: 10-50 intervals typically
-   - Overlap: 20-50% overlap recommended
-   - Cross-validation for optimal choices
-
 
 
 ## Visualization Methods
+
 
 ### Persistence Diagrams
 - **Points**: $(birth, death)$ coordinates
 - **Diagonal**: $y = x$ represents noise threshold
 - **Distance from Diagonal**: Measures feature persistence
 
+
 ### Barcodes
 - **Intervals**: $[birth, death)$ as horizontal bars
 - **Length**: Indicates feature persistence
 - **Stacking**: Shows multiple features per dimension
+
 
 ### Mapper Networks
 - **Nodes**: Clusters from pullback cover
@@ -209,10 +180,12 @@ $$d_B(D_1, D_2) = \inf_{\gamma} \sup_{p \in D_1} \|p - \gamma(p)\|_\infty$$
 - **Node Size**: Proportional to cluster size
 - **Node Color**: Based on filter function values
 
+
 ### Statistical Summaries
 - **Persistence Landscapes**: $\lambda_k(t) = \max_i \max(0, \min(t - b_i, d_i - t))$
 - **Persistence Images**: Gaussian smoothing of persistence diagrams
 - **Persistence Curves**: $PC_p(t) = \left(\sum_{(b,d)} (d-b)^p \mathbf{1}_{[b,d)}(t)\right)^{1/p}$
+
 
 ### Interactive Exploration
 - **Linked Views**: Coordinate multiple visualizations
