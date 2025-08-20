@@ -2,7 +2,9 @@
 
 - Background & Motivation
 - Research Questions
-- Methodology
+- Simplexification
+- Persistence and Stability
+- Visualization Methods and Tools
 - Preliminary Results
 - Future Work
 - Timeline

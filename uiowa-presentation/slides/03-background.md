@@ -6,190 +6,134 @@ The use of tools from topology to extract and study data 'shape' across scales.
 
 ## Three Themes
 
-### 1. Data → Topological Spaces
+1. Topologification
 
-### 2. Persistence and Stability
+2. Persistence and Stability
 
-### 3. Visualization Methods
+3. Visualization Methods
 
 
 
-## Constructing Topological Spaces
+## Constructing Topological Spaces from Data
 
-**Problem**: Raw data typically lacks inherent topological structure.
+**Problem**: Raw data lacks inherent topological structure.
 
-**Solution**: Construct simplicial complexes from point-cloud data using proximity relationships.
+**Manifold Hypothesis**: We assume dataset is sampled from a manifold $M$
 
 
 ## General Framework:
-- Given point cloud $X = \{x_1, x_2, \ldots, x_n\} \subset \mathbb{R}^d$
-- Define proximity criterion based on distance threshold $\epsilon$
-- Build simplicial complex $K_\epsilon(X)$ where simplices represent local connectivity
+- Given point cloud $X = \\{x_1, x_2, \ldots, x_n\\} \subset \mathbb{R}^d$
+with Manifold Hypothesis.
 
-
-## Vietoris-Rips Complex
-
-**Definition**: For point cloud $X$ and radius $\epsilon > 0$:
-
-$$VR_\epsilon(X) = \{\sigma \subseteq X : \text{diam}(\sigma) \leq 2\epsilon\}$$
-
-
-**Construction**:
-- Include $k$-simplex $\{(x_{i_0}, x_{i_1}, \ldots, x_{i_k})\}$ 
-if all pairwise distances satisfy:
-  $$d(x_{i_j}, x_{i_k}) \leq 2\epsilon \text{ for all } j, k$$
-
-
-**Properties**:
-- Easy to compute
-- May include "hollow" simplices
-- Commonly used for persistent homology
+- Define a distance threshold $\epsilon$
+- Build simplicial complex which approximates the nerve of $M$.
 
 
 ## Čech Complex
 
-**Definition**: For point cloud $X$ and radius $\epsilon > 0$:
+**Definition**: For point cloud $X$ and threshold $\epsilon \in \mathbb{R}$:
 
-$$\\check{C}\_\\epsilon(X) = \{\sigma \subseteq X : \bigcap_{x \in \sigma} B(x, \epsilon) \neq \emptyset\}$$
+$$\\check{C}\_\\epsilon(X) = \left\\{\sigma \subseteq X : \bigcap_{x \in \sigma} B\left(x, \frac{\epsilon}{2}\right) \neq \emptyset \right\\}$$
 
 
 **Construction**:
-- Include simplex $\sigma$ if the intersection of all $\epsilon$-balls centered at vertices is non-empty
-- Geometrically captures true "holes" in data
+- Create an open cover of our sampling $X$ of the manifold $M$ with balls of radius $\frac{\epsilon}{2}$
+- $\\check{C}_\epsilon (X)$ is then the nerve of this open cover which approximates the nerve of $M$.
 
-**Nerve Theorem**: $\check{C}_\epsilon(X)$ has same homotopy type as union of balls $\bigcup_{x \in X} B(x, \epsilon)$
+**Trade-off**: Accurate but computationally expensive
 
-**Trade-off**: More geometrically accurate but computationally expensive
+
+## Vietoris-Rips Complex
+
+**Definition**: For point cloud $X$ in a metric space and a given threshold $\epsilon \in \mathbb{R}^{\geq 0}$:
+
+$$VR_\epsilon(X) = \\{\sigma \subseteq X : \text{diam}(\sigma) \leq \epsilon\\}$$
+
+
+**Construction**:
+
+$$\{(x_{i_0}, x_{i_1}, \ldots, x_{i_k})\} \in VR_\epsilon(X)$$
+if all pairwise distances satisfy:
+  $$d(x_{i_j}, x_{i_k}) \leq \epsilon$$
+
+
+
+**Properties**:
+- $VR_\epsilon(X)$ contains $\\check{C}_\epsilon (X)$ as a subcomplex and is easier to compute
+- The elements of $X$ are the vertices of $VR_\epsilon(X)$
+- 1-skeleton (vertices + edges) are the same for Rips and Cech complex.
+- Compared to $\check{C}_\epsilon (X)$ may include additional "hollow" simplices: (reword this)
+
+$$\sigma \in \check{C}{\epsilon}(X) \iff \bigcap_{x_{k} \in \sigma} B\left(x_{k}, \frac{\epsilon}{2}\right) \neq \emptyset $$
+
+
+## Show triangle diagram Rips vs Cech
 
 
 ## Witness Complex
 
 **Definition**: Given landmarks $L \subset X$ and witnesses $W \subset X$:
 
-A simplex $\sigma \subseteq L$ belongs to $W_\epsilon(L,W)$ if there exists $w \in W$ such that:
+$\sigma \subseteq L$ is included as a simplex in $\text{Wit}(X, L, W)$ if it is 'witnessed' by some point $w \in W$.
+
 $$d(w, l) \leq d(w, L \setminus \sigma) + \epsilon$$
 for all $l \in \sigma$
 
-**Key Idea**:
-- Witnesses "see" landmark configurations
-- Reduces computational complexity
-- Particularly useful for large datasets
 
-**Parameters**:
-- Number of landmarks $|L|$
-- Witness threshold $\epsilon$
-- A version of Dulauney Complex for any metric space
+**Idea**:
+
+Witnesses "see" nearby landmark configurations 
+
+- 'Strong' if $\epsilon = 0$
+
+**Note**: Many other techniques can be derived from Witness Complexes (verify :)
+
+
+## Add figure
+
+
+## Curse of Dimensionality
+
+Give dimension curse example and describe why mapper would be useful
+
+- The witness complex is useful since it reduces the number of comparisons by just checking $L$ and $W$.
+- Mapper is useful since it reduces dimension with filter and uses cluster intersection instead of pairwise distance comparisons across $X$
+
+Remove the above bullet:
+
+- Mapper uses a covering scheme. The filter function reduces computation for the cover_scheme.
+
+
+## Money Ball joke
+
+Billy Beane: Guys, you're still trying to replace Giambi [$\check{C}_{\epsilon}(X)$]. I told you we can't do it, and we can't do it. Now, what we might be able to do is re-create him. Re-create him in the aggregate [TDA-Mapper].
+
+Grady Fuson: The what?
 
 
 ## Mapper Complex
 
-**Algorithm** (Singh, Mémoli, Carlsson):
+**Mapper Algorithm** (Singh, Mémoli, Carlsson):
 
-1. **Cover**: Choose cover $\mathcal{U} = \{U_i\}$ of filter function range $f: X \to \mathbb{R}^k$
-2. **Pullback**: Compute pullback cover $\{f^{-1}(U_i)\}$
-3. **Cluster**: Apply clustering algorithm to each $f^{-1}(U_i)$
-4. **Network**: Create graph where nodes = clusters, edges = non-empty intersections
+Given:
+Dataset $X$ with a metric
 
-**Mathematical Framework**:
-- Filter function: $f: X \to \mathbb{R}^k$
-- Cover overlap parameter: $p \in (0,1)$
-- Resolution parameter: $r > 0$
-- Clustering method: $C: 2^X \to 2^{2^X}$
+A filter function $f:X \to \mathbb{R}^{m}$
+
+A cover $U$ of $f[X]$
+
+A clustering method on $X$
 
 
-
-## Persistence and Stability
-
-**Persistence**: Topological features that survive across multiple scales in a filtration.
-
-**Filtration**: Nested sequence of complexes:
-$$K_0 \subseteq K_1 \subseteq K_2 \subseteq \cdots \subseteq K_n$$
-
-**Birth-Death**: Feature appears at $K_i$ (birth) and disappears at $K_j$ (death) for $i < j$.
+Make this slide better formatted (not centered or something)
 
 
-**Persistence**: $\text{pers}(\text{feature}) = j - i$ or $\text{death} - \text{birth}$
-
-**Stability Theorem** (Cohen-Steiner, Edelsbrunner, Harer):
-For filtrations $f, g: K \to \mathbb{R}$:
-$$d_\infty(\text{dgm}(f), \text{dgm}(g)) \leq \|f - g\|_\infty$$
-
-
-## Persistent Homology
-
-**Definition**: For filtration $\emptyset = K_0 \subseteq K_1 \subseteq \cdots \subseteq K_n$, track:
-
-$$H_k(K_0) \to H_k(K_1) \to \cdots \to H_k(K_n)$$
-
-**$k$-th Persistent Betti Numbers**:
-$$\beta_k^{i,j} = \text{rank}(H_k(K_i) \to H_k(K_j))$$
+## Construction
+1. Pullback each cover element $U_i$ to $\bar{U}_i = f^{-1}[U_i] \subseteq X$
+2. Cluster points in each $\bar{U}_i$
+3. Build the nerve from the set of all resulting clusters.
 
 
-**Persistence Diagram**: Multiset of points $(b,d)$ where:
-- $b$ = birth time
-- $d$ = death time
-- Points above diagonal $y = x$ represent persistent features
+## Add a picture with filter function
 
-
-**Barcode**: Alternative visualization showing feature lifespans as intervals $[b,d)$
-
-**Bottleneck Distance**: Stable metric between persistence diagrams:
-$$d_B(D_1, D_2) = \inf_{\gamma} \sup_{p \in D_1} \|p - \gamma(p)\|_\infty$$
-
-
-## Stability in Mapper Parameter Choices
-
-**Parameter Sensitivity**:
-- **Resolution**: Affects granularity of cover
-- **Overlap**: Controls information flow between regions  
-- **Filter Function**: Choice dramatically impacts results
-- **Clustering Method**: Different algorithms yield different structures
-
-
-**Theoretical Results**:
-- **Filtrations and Interleaving**: Measures stability between Mapper constructions
-- **Multi-scale Approaches**: Use multiple parameter settings simultaneously
-
-
-**Practical Guidelines**:
-1. **Filter Function Selection**:
-   - Density-based: $f(x) = \frac{1}{k} \sum_{i=1}^k d(x, x_i^{nn})$
-   - Eccentricity: $f(x) = \sum_{y \in X} d(x,y)$
-   - Coordinate projections: $f(x) = x_j$ for dimension $j$
-
-
-
-## Visualization Methods
-
-
-### Persistence Diagrams
-- **Points**: $(birth, death)$ coordinates
-- **Diagonal**: $y = x$ represents noise threshold
-- **Distance from Diagonal**: Measures feature persistence
-
-
-### Barcodes
-- **Intervals**: $[birth, death)$ as horizontal bars
-- **Length**: Indicates feature persistence
-- **Stacking**: Shows multiple features per dimension
-
-
-### Mapper Networks
-- **Nodes**: Clusters from pullback cover
-- **Edges**: Non-empty cluster intersections
-- **Node Size**: Proportional to cluster size
-- **Node Color**: Based on filter function values
-
-
-### Statistical Summaries
-- **Persistence Landscapes**: $\lambda_k(t) = \max_i \max(0, \min(t - b_i, d_i - t))$
-- **Persistence Images**: Gaussian smoothing of persistence diagrams
-- **Persistence Curves**: $PC_p(t) = \left(\sum_{(b,d)} (d-b)^p \mathbf{1}_{[b,d)}(t)\right)^{1/p}$
-
-
-### Interactive Exploration
-- **Linked Views**: Coordinate multiple visualizations
-- **Parameter Sweeps**: Animate across parameter ranges  
-- **Feature Selection**: Isolate specific topological features
-- **Data Integration**: Combine with original data visualization
-
+And more stuff

@@ -4,7 +4,7 @@ Reveal.initialize({
     controls: true,
     progress: true,
     center: true,
-    transition: 'slide',
+    transition: 'none',
 
     // Display slide numbers
     slideNumber: 'c/t',
