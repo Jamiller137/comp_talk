@@ -30,19 +30,62 @@ Build simplicial complex which approximates the topology of $M$.
 
 ## Simplicial Complex:
 A simplicial complex is a family of sets which is closed under taking subsets.
-#### Geometric Realization
-<div class="uiowa-logo">
-    <img src="images/Simplicial_complex_example.svg.png" alt="University of Iowa" style="height: 250px;">
+
+<div style="text-align: left;">
+        $\Delta^{0} = \{ 1\}, \{ 2\}, \{ 3\}, \{ 4\}, \{ 5\}$----------- Vertices
+        $\Delta^{1} = \{ 1, 2\}, \{ 2, 3\}, \{ 1, 3\} \{ 1, 4\}$------ Edges
+        $\Delta^{2} =  \{ 1, 2, 3\}$-------------------------------- Faces
 </div>
+
+#### Geometric Realization
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 -20 252.323 233.641" style="max-width: 30%; height: auto;">
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; white-space: pre; text-rendering: geometricprecision;" x="111.86" y="14.938">1</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; white-space: pre; text-rendering: geometricprecision;" x="-10" y="74.03">2</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; white-space: pre; text-rendering: geometricprecision;" x="47.062" y="143.046">3</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; white-space: pre; text-rendering: geometricprecision;" x="153.87" y="145.633">4</text>
+  <text style="fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; white-space: pre; text-rendering: geometricprecision;" x="199.802" y="60.786">5</text>
+  <path style="stroke: rgb(0, 0, 0); fill: rgb(180, 230, 255); stroke-width: 2px; shape-rendering: geometricprecision;" d="M 101.579 13.408 L 19.122 69.575 L 39.294 126.338 L 101.579 13.408 Z"></path>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 2px; shape-rendering: geometricprecision;" d="M 100.981 15.201 L 148.185 128.131"></path>
+  <ellipse style="stroke: rgb(0, 0, 0); shape-rendering: geometricprecision;" cx="37.465" cy="124.984" rx="5.941" ry="5.941"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: geometricprecision;" cx="147.929" cy="124.984" rx="5.941" ry="5.941"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: geometricprecision;" cx="189.081" cy="49.1" rx="5.941" ry="5.941"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: geometricprecision;" cx="19.222" cy="69.814" rx="5.941" ry="5.941"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; shape-rendering: geometricprecision;" cx="100.329" cy="14.52" rx="5.941" ry="5.941"></ellipse>
+</svg>
 
 
 ## Nerve Complex:
-Given a family of sets (open cover) $\mathcal{U} = \\{U_{i} \\}_{i \in I}$. 
-
-The nerve of $\mathcal{U}$ is a simplicial complex
+The nerve of a family of sets $\mathcal{U}$ is a simplicial complex
 which records intersection information.
 
-$$ \sigma = \\{ i_{0}, \dots, i_{k}\\} \in N(\mathcal{U}) \iff \bigcap_{n=0}^{n=k} U_{i_{n}} \neq \emptyset$$
+$ \sigma = \\{ i_{0}, \dots, i_{k}\\} \in N(\mathcal{U}) \iff \bigcap_{n=0}^{n=k} U_{i_{n}} \neq \emptyset$
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 10 500 200" style="max-width: 95%; height: auto;">
+  <g style="" transform="matrix(0.5408, 0, 0, 0.5408, 10.78545, -39.983433)">
+    <path style="stroke: rgb(0, 0, 0); fill: rgba(255, 119, 119, 0.39);" d="M 143.165 277.127 L 110.899 277.725 C 110.899 277.725 89.484 133.723 244.742 133.126 C 400 132.529 388.743 300 377.39 286.687 C 366.037 273.374 344.527 286.09 344.527 286.09 C 350.984 121.612 141.373 136.114 143.165 277.127 Z"></path>
+    <path style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgba(119, 255, 150, 0.39); transform-origin: 245.338px 311.186px 0px;" d="M 141.904 378.03 L 109.638 378.628 C 109.638 378.628 88.223 234.626 243.481 234.029 C 398.739 233.432 387.482 400.903 376.129 387.59 C 364.776 374.277 343.267 386.993 343.267 386.993 C 349.724 222.515 140.112 237.017 141.904 378.03 Z" transform="matrix(-1, 0, 0, -1, 0, 0)"></path>
+    <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px;" x="238.766" y="125.693">U1</text>
+    <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px; stroke-width: 1px;" x="239.412" y="416.647">U2</text>
+    <ellipse style="stroke-width: 5px; stroke: rgb(0, 0, 0); fill: rgba(255, 119, 119, 0);" cx="247.132" cy="263.086" rx="120.1" ry="112.034"></ellipse>
+  </g>
+  <ellipse style="stroke: rgb(0, 0, 0); fill: rgb(255, 0, 0); transform-origin: 168.26px 258.604px 0px;" cx="168.26" cy="258.604" rx="3.555" ry="3.555" transform="matrix(0, 1, -1, 0, -25.065055, -200.041695)"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); fill: rgb(0, 255, 0); transform-origin: 321.223px 258.803px 0px;" cx="321.223" cy="258.803" rx="3.554" ry="3.554" transform="matrix(0, 1, -1, 0, -178.135728, -117.518341)"></ellipse>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 2px; transform-origin: 142.926px 100.248px 0px;" d="M 104.796 100.086 L 181.055 100.409" transform="matrix(0, 1, -1, 0, 0, 0)"></path>
+  <g transform="matrix(0.5408, 0, 0, 0.5408, 192.710846, -39.983376)" style="">
+    <path style="stroke: rgb(0, 0, 0); fill: rgba(255, 119, 119, 0.39);" d="M 143.165 277.127 L 110.899 277.725 C 110.899 277.725 89.484 133.723 244.742 133.126 C 400 132.529 388.743 300 377.39 286.687 C 366.037 273.374 344.527 286.09 344.527 286.09 C 350.984 121.612 141.373 136.114 143.165 277.127 Z"></path>
+    <path style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgba(119, 255, 150, 0.39);" d="M 141.904 378.03 L 109.638 378.628 C 109.638 378.628 105.726 299.755 144.891 262.112 C 184.056 224.469 293.617 238.379 294.214 240.004 C 294.811 241.629 269.773 269.88 269.773 269.88 C 295.35 253.585 127.077 235.224 141.904 378.03 Z" transform="matrix(-1, 0, 0, -1, 490.675995, 622.372009)"></path>
+    <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px;" x="238.766" y="125.693">U1</text>
+    <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px; stroke-width: 1px;" x="344.037" y="394.025">U2</text>
+    <path style="stroke: rgb(0, 0, 0); fill: rgba(135, 95, 255, 0.467);" d="M 101.538 251.036 C 90.544 339.994 226.062 417.117 235.979 386.855 L 240.759 356.198 C 228.973 383.237 114.033 291.429 149.339 251.036 L 101.538 251.036 Z"></path>
+    <ellipse style="stroke-width: 5px; stroke: rgb(0, 0, 0); fill: rgba(255, 119, 119, 0);" cx="247.132" cy="263.086" rx="120.1" ry="112.034"></ellipse>
+    <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px; stroke-width: 1px;" x="109.213" y="369.527">U3</text>
+  </g>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 2px; transform-origin: 343.206px 99.472px 0px;" d="M 302.653 114.013 L 383.76 84.931" transform="matrix(0, 1, -1, 0, 0, 0)"></path>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 2px; transform-origin: 307.274px 93.052px 0px;" d="M 272.537 73.502 L 342.012 112.602" transform="matrix(0, 1, -1, 0, 0, 0)"></path>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 2px; transform-origin: 323.43px 134.575px 0px;" d="M 316.16 165.757 L 330.701 103.392" transform="matrix(0, -1, 1, 0, 0, 0)"></path>
+  <ellipse style="stroke: rgb(0, 0, 0); fill: rgb(255, 0, 0); transform-origin: 506.573px 260.397px 0px;" cx="506.573" cy="260.397" rx="3.555" ry="3.555" transform="matrix(0, 1, -1, 0, -179.416838, -203.094782)"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); fill: rgb(0, 255, 58); transform-origin: 659.536px 260.596px 0px;" cx="659.536" cy="260.596" rx="3.554" ry="3.554" transform="matrix(0, 1, -1, 0, -301.143116, -119.601878)"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgb(145, 107, 255); transform-origin: 573.574px 331.222px 0px;" cx="573.574" cy="331.222" rx="3.554" ry="3.554" transform="matrix(0, 1, -1, 0, -284.396952, -205.411367)"></ellipse>
+</svg>
 
 
 ## Nerve Theorem:
@@ -51,14 +94,36 @@ Given an open cover $\mathcal{U}$ of a manifold $M$ when is the topology of $N(\
 equivalent to the topology of $M$?
 
 The two are equivalent if each pairwise intersection $U_i \cap U_j$ is either empty or contractible.
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 10 500 200" style="max-width: 95%; height: auto;">
+  <g style="" transform="matrix(0.5408, 0, 0, 0.5408, 10.78545, -39.983433)">
+    <path style="stroke: rgb(0, 0, 0); fill: rgba(255, 119, 119, 0.39);" d="M 143.165 277.127 L 110.899 277.725 C 110.899 277.725 89.484 133.723 244.742 133.126 C 400 132.529 388.743 300 377.39 286.687 C 366.037 273.374 344.527 286.09 344.527 286.09 C 350.984 121.612 141.373 136.114 143.165 277.127 Z"></path>
+    <path style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgba(119, 255, 150, 0.39); transform-origin: 245.338px 311.186px 0px;" d="M 141.904 378.03 L 109.638 378.628 C 109.638 378.628 88.223 234.626 243.481 234.029 C 398.739 233.432 387.482 400.903 376.129 387.59 C 364.776 374.277 343.267 386.993 343.267 386.993 C 349.724 222.515 140.112 237.017 141.904 378.03 Z" transform="matrix(-1, 0, 0, -1, 0, 0)"></path>
+    <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px;" x="238.766" y="125.693">U1</text>
+    <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px; stroke-width: 1px;" x="239.412" y="416.647">U2</text>
+    <ellipse style="stroke-width: 5px; stroke: rgb(0, 0, 0); fill: rgba(255, 119, 119, 0);" cx="247.132" cy="263.086" rx="120.1" ry="112.034"></ellipse>
+  </g>
+  <ellipse style="stroke: rgb(0, 0, 0); fill: rgb(255, 0, 0); transform-origin: 168.26px 258.604px 0px;" cx="168.26" cy="258.604" rx="3.555" ry="3.555" transform="matrix(0, 1, -1, 0, -25.065055, -200.041695)"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); fill: rgb(0, 255, 0); transform-origin: 321.223px 258.803px 0px;" cx="321.223" cy="258.803" rx="3.554" ry="3.554" transform="matrix(0, 1, -1, 0, -178.135728, -117.518341)"></ellipse>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 2px; transform-origin: 142.926px 100.248px 0px;" d="M 104.796 100.086 L 181.055 100.409" transform="matrix(0, 1, -1, 0, 0, 0)"></path>
+  <g transform="matrix(0.5408, 0, 0, 0.5408, 192.710846, -39.983376)" style="">
+    <path style="stroke: rgb(0, 0, 0); fill: rgba(255, 119, 119, 0.39);" d="M 143.165 277.127 L 110.899 277.725 C 110.899 277.725 89.484 133.723 244.742 133.126 C 400 132.529 388.743 300 377.39 286.687 C 366.037 273.374 344.527 286.09 344.527 286.09 C 350.984 121.612 141.373 136.114 143.165 277.127 Z"></path>
+    <path style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgba(119, 255, 150, 0.39);" d="M 141.904 378.03 L 109.638 378.628 C 109.638 378.628 105.726 299.755 144.891 262.112 C 184.056 224.469 293.617 238.379 294.214 240.004 C 294.811 241.629 269.773 269.88 269.773 269.88 C 295.35 253.585 127.077 235.224 141.904 378.03 Z" transform="matrix(-1, 0, 0, -1, 490.675995, 622.372009)"></path>
+    <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px;" x="238.766" y="125.693">U1</text>
+    <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px; stroke-width: 1px;" x="344.037" y="394.025">U2</text>
+    <path style="stroke: rgb(0, 0, 0); fill: rgba(135, 95, 255, 0.467);" d="M 101.538 251.036 C 90.544 339.994 226.062 417.117 235.979 386.855 L 240.759 356.198 C 228.973 383.237 114.033 291.429 149.339 251.036 L 101.538 251.036 Z"></path>
+    <ellipse style="stroke-width: 5px; stroke: rgb(0, 0, 0); fill: rgba(255, 119, 119, 0);" cx="247.132" cy="263.086" rx="120.1" ry="112.034"></ellipse>
+    <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px; stroke-width: 1px;" x="109.213" y="369.527">U3</text>
+  </g>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 2px; transform-origin: 343.206px 99.472px 0px;" d="M 302.653 114.013 L 383.76 84.931" transform="matrix(0, 1, -1, 0, 0, 0)"></path>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 2px; transform-origin: 307.274px 93.052px 0px;" d="M 272.537 73.502 L 342.012 112.602" transform="matrix(0, 1, -1, 0, 0, 0)"></path>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 2px; transform-origin: 323.43px 134.575px 0px;" d="M 316.16 165.757 L 330.701 103.392" transform="matrix(0, -1, 1, 0, 0, 0)"></path>
+  <ellipse style="stroke: rgb(0, 0, 0); fill: rgb(255, 0, 0); transform-origin: 506.573px 260.397px 0px;" cx="506.573" cy="260.397" rx="3.555" ry="3.555" transform="matrix(0, 1, -1, 0, -179.416838, -203.094782)"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); fill: rgb(0, 255, 58); transform-origin: 659.536px 260.596px 0px;" cx="659.536" cy="260.596" rx="3.554" ry="3.554" transform="matrix(0, 1, -1, 0, -301.143116, -119.601878)"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgb(145, 107, 255); transform-origin: 573.574px 331.222px 0px;" cx="573.574" cy="331.222" rx="3.554" ry="3.554" transform="matrix(0, 1, -1, 0, -284.396952, -205.411367)"></ellipse>
+</svg>
 
 
 ## Čech Complex
-
-**Definition**: For point cloud $X$ and threshold $\epsilon \in \mathbb{R}$:
-
-$$\\check{C}\_\\epsilon(X) = \left\\{\sigma \subseteq X : \bigcap_{x \in \sigma} B\left(x, \frac{\epsilon}{2}\right) \neq \emptyset \right\\}$$
-
 
 **Construction**:
 1. Create an open cover of our sampling $X$ with balls of radius $\frac{\epsilon}{2}$ centered at each $x \in X$.
@@ -69,8 +134,11 @@ $$ \sigma \in \check{C}\_{\epsilon}(X) \iff \bigcap_{x_{k} \in \sigma} B(x_{k}, 
 
 
 ## Image of Cech Complex
+**Definition**: For point cloud $X$ and threshold $\epsilon \in \mathbb{R}$:
+
+$\\check{C}\_\\epsilon(X) = \left\\{\sigma \subseteq X : \bigcap_{x \in \sigma} B\left(x, \frac{\epsilon}{2}\right) \neq \emptyset \right\\}$
 <!-- Čech complex from three balls (nerve is the filled triangle) -->
-<svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg" style="max-width: 90%; height: auto;">
+<svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg" style="max-width: 50%; height: auto;">
   <defs>
     <style>
       .label { font: 600 16px system-ui, -apple-system, Segoe UI, Roboto, sans-serif; fill: currentColor; }
