@@ -17,6 +17,7 @@
             nodejs_20
             nodePackages.npm
             nodePackages.live-server
+            wl-clipboard
           ];
 
           shellHook = ''
