@@ -53,6 +53,12 @@ Mapper Persistence and Stability
 
 Visualization Methods: Current Packages
 
-Natural Image Dataset: 
+Natural Image Dataset: Result and process
+
+Zen Sight Package and trying to replicate natural image dataset
+
+Timeline:
+
+Questions:
 
 
