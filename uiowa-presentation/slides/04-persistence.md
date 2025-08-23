@@ -13,13 +13,12 @@ $$\Delta_0 \subseteq \Delta_1 \subseteq \Delta_2 \subseteq \cdots \subseteq \Del
 
 
 ## Examples:
-<div style="text-align: left;">
-    <ul>
-      <li>$0 \leq \epsilon' \leq \epsilon < \infty \implies VR_{\epsilon'}(X) \subseteq VR_\epsilon(X)$ </li>
-      <li>$0 \leq \epsilon' \leq \epsilon < \infty \implies \check{C}_{\epsilon'}(X) \subseteq \check{C}_\epsilon(X)$
-</li>
-    </ul>
-  </div>
+If $0 \leq \epsilon' \leq \epsilon < \infty$ then:
+
+$VR\_{\epsilon'}(X) \subseteq VR_\epsilon(X)$, 
+
+$\check{C}\_{\epsilon'}(X) \subseteq \check{C}\_\epsilon(X)$, 
+$\text{Wit}\_{\epsilon'}(L, W; \nu) \subseteq \text{Wit}\_{\epsilon}(L, W; \nu) $
 
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" xmlns:bx="https://boxy-svg.com" style="max-width: 100%; height: auto; ">
   <defs>
@@ -71,11 +70,6 @@ $$\Delta_0 \subseteq \Delta_1 \subseteq \Delta_2 \subseteq \cdots \subseteq \Del
   <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgb(130, 160, 255);" cx="117.464" cy="66.331" rx="6.675" ry="6.675"></ellipse>
   <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgb(130, 160, 255);" cx="69.815" cy="145.13" rx="6.675" ry="6.675"></ellipse>
 </svg>
-
-<p style="font-size: 0.55em; margin: 0;">
-  Bungula, W., &amp; Darcy, I. (2024). <em>Bi-Filtration and Stability of TDA Mapper for Point Cloud Data</em>. arXiv:2409.17360. 
-  <a href="https://arxiv.org/abs/2409.17360">https://arxiv.org/abs/2409.17360</a>
-</p>
 
 
 ## Homology

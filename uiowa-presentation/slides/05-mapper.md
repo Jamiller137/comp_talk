@@ -105,11 +105,17 @@ Build the nerve from the set of all resulting clusters.
 </svg>
 
 
+## Mapper filtration:
+
+<p style="font-size: 0.55em; margin: 0;">
+  Bungula, W., &amp; Darcy, I. (2024). <em>Bi-Filtration and Stability of TDA Mapper for Point Cloud Data</em>. arXiv:2409.17360. 
+  <a href="https://arxiv.org/abs/2409.17360">https://arxiv.org/abs/2409.17360</a>
+</p>
+
+
 ## Stability in Mapper Parameter Choices
 
 ( do last)
-
-Stat Mapper 
 
 Maper Similarity Metric
 

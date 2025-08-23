@@ -284,8 +284,10 @@ $\sigma \subseteq L$ is included as a simplex in $\text{Wit}_\infty(L, W)$ if it
 
   <!-- One witness -->
   <circle cx="300" cy="240" r="7" class="witness"/>
-  <text x="312" y="244" class="label" style="font-weight: 500;">w</text>
+  <circle cx="345" cy="310" r="7" class="witness"/>
   <circle cx="230" cy="120" r="7" class="witness"/>
+  <text x="312" y="244" class="label" style="font-weight: 500;">w</text>
+  <text x="312" y="314" class="label" style="font-weight: 500;">w''</text>
   <text x="242" y="124" class="label" style="font-weight: 500;">w'</text>
 
   <!-- Dotted blue circle centered at the witness; radius chosen to include only L1, L2, L3 -->
@@ -302,10 +304,8 @@ $\sigma \subseteq L$ is included as a simplex in $\text{Wit}_\infty(L, W)$ if it
   <text x="312" y="150" class="label">L3</text>
 
   <!-- Additional landmarks (all outside the witness circle) -->
-  <circle cx="450" cy="340" r="6" class="landmark"/>
   <circle cx="460" cy="120" r="6" class="landmark"/>
   <circle cx="180" cy="180" r="6" class="landmark"/>
-  <text x="458" y="356" class="label">L6</text>
   <text x="468" y="116" class="label">L5</text>
   <text x="168" y="170" class="label">L4</text>
 
