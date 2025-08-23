@@ -22,7 +22,7 @@ Relies on the *Manifold Hypothesis*
 
 
 ## General Framework:
-Given a point-cloud $$X = \\{x_1, x_2, \ldots, x_n\\} \subset M^{\oplus \delta} \subset \mathbb{R}^d$$
+Given a point-cloud $X = \\{\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_n\\} \mathrel{\substack{\subset \\\ \sim}} \bigcup M_\{i\}^\{d_\{i\}\} \subset \mathbb{R}^d$
 
 Build simplicial complex which approximates the topology of $M$.
 
@@ -125,17 +125,16 @@ The two are equivalent if each pairwise intersection $U_i \cap U_j$ is either em
 ## Čech Complex
 
 **Construction**:
-1. Create an open cover of our sampling $X$ with balls of radius $\frac{\epsilon}{2}$ centered at each $x \in X$.
+1. Create an open cover of our sampling $X$ with balls of radius $\frac{\epsilon}{2}$ centered at each $\vec{x} \in X$.
 2. $\\check{C}_\epsilon (X)$ is then the nerve of this open cover which approximates the nerve of $M$.
 
-$$ \sigma \in \check{C}\_{\epsilon}(X) \iff \bigcap_{x_{k} \in \sigma} B(x_{k}, \frac{\epsilon}{2}) \neq \emptyset $$
-**Note:** Accurate but computationally expensive
+$$ \sigma \in \check{C}\_{\epsilon}(X) \iff \bigcap_{\vec{x}_{k} \in \sigma} B(\vec\{x\}_\{k\}, \frac{\epsilon}{2}) \neq \emptyset $$
 
 
 ## Image of Cech Complex
 **Definition**: For point cloud $X$ and threshold $\epsilon \in \mathbb{R}$:
 
-$\\check{C}\_\\epsilon(X) = \left\\{\sigma \subseteq X : \bigcap_{x \in \sigma} B\left(x, \frac{\epsilon}{2}\right) \neq \emptyset \right\\}$
+$\\check{C}\_\\epsilon(X) = \left\\{\sigma \subseteq X : \bigcap_{\vec{x} \in \sigma} B\left(\vec{x}, \frac{\epsilon}{2}\right) \neq \emptyset \right\\}$
 <!-- Čech complex from three balls (nerve is the filled triangle) -->
 <svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg" style="max-width: 50%; height: auto;">
   <defs>

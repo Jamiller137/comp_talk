@@ -1,5 +1,3 @@
-add figure for nerve theorem circle cover example
-
 Witness complex adds tie (remove probably)
 
 Every slide have a figure with it
