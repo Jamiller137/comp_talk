@@ -18,10 +18,59 @@ $$\Delta_0 \subseteq \Delta_1 \subseteq \Delta_2 \subseteq \cdots \subseteq \Del
       <li>$0 \leq \epsilon' \leq \epsilon < \infty \implies VR_{\epsilon'}(X) \subseteq VR_\epsilon(X)$ </li>
       <li>$0 \leq \epsilon' \leq \epsilon < \infty \implies \check{C}_{\epsilon'}(X) \subseteq \check{C}_\epsilon(X)$
 </li>
-      <li>Mapper with DBSCAN clustering where $MinPts = 1, 2$ gives a filtration over $\epsilon$.
- </li>
     </ul>
   </div>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" xmlns:bx="https://boxy-svg.com" style="max-width: 100%; height: auto; ">
+  <defs>
+    <bx:grid x="0" y="0" width="53.4" height="50.042"></bx:grid>
+  </defs>
+  <path style="stroke: rgb(0, 0, 0); fill: rgb(179, 255, 255); stroke-width: 3px;" d="M 730.43 150.713 L 740.925 72.628 L 676.099 49.202 L 730.43 150.713 Z"></path>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px;" x="614.19" y="102.015">⊆</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px; stroke-width: 1px;" x="453.005" y="103.064">⊆</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px; stroke-width: 1px;" x="293.475" y="103.274">⊆</text>
+  <path style="stroke-width: 3px; stroke: rgb(0, 0, 0); fill: rgb(255, 171, 171);" d="M 678.002 50.797 L 731.318 151.805 L 694.2 151.805 L 678.002 50.797 Z"></path>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 3px;" d="M 422.334 69.689 L 410.574 143.577"></path>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 3px;" d="M 359.362 45.34 L 421.494 66.75"></path>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 3px;" d="M 376.154 146.095 L 410.574 144.836"></path>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 3px;" d="M 199.832 45.34 L 261.964 66.75"></path>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 3px;" d="M 216.624 146.095 L 251.044 144.836"></path>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px; stroke-width: 1px;" x="144.583" y="102.435">⊆</text>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 3px;" d="M 71.367 146.095 L 105.787 144.836"></path>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 3px; stroke-dasharray: 5px;" d="M 693.955 150.294 L 740.554 72.628"></path>
+  <path style="stroke: rgb(0, 0, 0); stroke-width: 3px; fill: rgb(253, 255, 167);" d="M 535.684 144.416 L 583.123 67.17 L 520.151 45.76 L 535.684 144.416 Z"></path>
+  <path style="stroke-width: 3px; stroke: rgb(0, 0, 0); fill: rgb(164, 255, 169);" d="M 534.845 147.355 L 581.864 67.17 L 573.048 141.898 L 534.845 147.355 Z"></path>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px;" x="77.666" y="185.559">ε</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px; stroke-width: 1px;" x="227.596" y="184.299">ε</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px; stroke-width: 1px;" x="387.126" y="183.669">ε</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px; stroke-width: 1px;" x="547.915" y="182.62">ε</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px; stroke-width: 1px;" x="704.926" y="182.62">ε</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px;" x="91.225" y="193.871" transform="matrix(0.725144, 0, 0, 0.578402, 25.073778, 77.793785)">1</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px;" x="91.225" y="193.871" transform="matrix(0.809718, 0, 0, 0.588937, 167.296387, 76.017998)">2</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px;" x="91.225" y="193.871" transform="matrix(0.682869, 0, 0, 0.620187, 338.149719, 70.784882)">3</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px;" x="91.225" y="193.871" transform="matrix(0.682869, 0, 0, 0.578521, 497.820526, 77.806526)">4</text>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px;" x="91.225" y="193.871" transform="matrix(0.704011, 0, 0, 0.547271, 654.501831, 83.072762)">5</text>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgb(130, 160, 255);" cx="199.076" cy="45.467" rx="6.675" ry="6.675"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgb(130, 160, 255);" cx="252.015" cy="143.031" rx="6.675" ry="6.675"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgb(130, 160, 255);" cx="262.721" cy="66.331" rx="6.675" ry="6.675"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgb(130, 160, 255);" cx="215.072" cy="145.13" rx="6.675" ry="6.675"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgb(130, 160, 255);" cx="358.606" cy="45.467" rx="6.675" ry="6.675"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgb(130, 160, 255);" cx="411.545" cy="143.031" rx="6.675" ry="6.675"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgb(130, 160, 255);" cx="422.251" cy="66.331" rx="6.675" ry="6.675"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgb(130, 160, 255);" cx="374.602" cy="145.13" rx="6.675" ry="6.675"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgb(130, 160, 255);" cx="677.28" cy="50.504" rx="6.675" ry="6.675"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgb(130, 160, 255);" cx="730.219" cy="148.068" rx="6.675" ry="6.675"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgb(130, 160, 255);" cx="740.925" cy="71.368" rx="6.675" ry="6.675"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgb(130, 160, 255);" cx="693.276" cy="150.167" rx="6.675" ry="6.675"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgb(130, 160, 255);" cx="519.815" cy="45.467" rx="6.675" ry="6.675"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgb(130, 160, 255);" cx="572.754" cy="143.031" rx="6.675" ry="6.675"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgb(130, 160, 255);" cx="583.46" cy="66.331" rx="6.675" ry="6.675"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgb(130, 160, 255);" cx="535.811" cy="145.13" rx="6.675" ry="6.675"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgb(130, 160, 255);" cx="53.819" cy="45.467" rx="6.675" ry="6.675"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgb(130, 160, 255);" cx="106.758" cy="143.031" rx="6.675" ry="6.675"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgb(130, 160, 255);" cx="117.464" cy="66.331" rx="6.675" ry="6.675"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgb(130, 160, 255);" cx="69.815" cy="145.13" rx="6.675" ry="6.675"></ellipse>
+</svg>
 
 <p style="font-size: 0.55em; margin: 0;">
   Bungula, W., &amp; Darcy, I. (2024). <em>Bi-Filtration and Stability of TDA Mapper for Point Cloud Data</em>. arXiv:2409.17360. 
@@ -120,15 +169,37 @@ Tracks how homological features evolve across a filtration of simplicial complex
   <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); paint-order: fill markers; stroke-dasharray: 5px, 10px;" d="M 200 118.45 L 382.677 44.096"></path>
 </svg>
 
-## Bottleneck Distance
+
+## Approximating Cech Complex Persistence
+Given a point-cloud $X \subset \mathbb{R}^{d}$ then there is a chain of inclusions
+
+$$ \check{C}_{\epsilon'} (X) \subseteq VR_\epsilon (X) \subseteq \check{C}_\{\epsilon\}(X) $$
+
+Whenever $\frac{\epsilon}{\epsilon'} \geq \sqrt{\frac{2d}{d + 1}}$
+
+<p style="font-size: 0.55em; margin: 0;">
+  Silva, V., &amp; Ghrist, R. (2007). <em>Coverage in sensor networks via persistent homology</em>. Algebraic & Geometric Topology, 7.
+</p>
 
 
-## Stability in Mapper Parameter Choices
+## Approximating via Witnesses
+If $L$ is an $\epsilon$-net landmark set of $X \subset \mathbb{R}^{d}$ for $\epsilon > 0$, then
 
-( do last)
+$$ VR_{\alpha / 3}(L) \subseteq \text{Wit}_{\alpha}(L, X \setminus L; \nu = 1) \subseteq VR\_{3 \alpha}(L)$$
+for $\alpha \geq 2\epsilon $
+<p style="font-size: 0.55em; margin: 0;">
+  Arafat, N. A., Basu, D., &amp; Bressan, S. (2019). <em>Topological Data Analysis with ε-net Induced Lazy Witness Complex</em>. arXiv preprint arXiv:1906.06122.
+</p>
 
-Stat Mapper 
 
-Maper Similarity Metric
+## Stitching Together
 
-Previous work on estimating parameters
+So in theory with a representative landmark set satisfying the $\epsilon$-net condition you can approximate the
+persistence in the Cech complex filtration via a laziest witness complex filtration.  
+
+
+**Problem:** May still require a large high-dimensional Landmark set for it to be representative.
+
+
+**Problem:** Curse of dimensionality makes it so that nearest neighbors is not stable under noise.
+

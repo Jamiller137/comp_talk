@@ -103,3 +103,14 @@ Build the nerve from the set of all resulting clusters.
   <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 314.876 344.027 L 264.591 305.643"></path>
   <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" d="M 214.307 395.908 L 256.51 395.908"></path>
 </svg>
+
+
+## Stability in Mapper Parameter Choices
+
+( do last)
+
+Stat Mapper 
+
+Maper Similarity Metric
+
+Previous work on estimating parameters

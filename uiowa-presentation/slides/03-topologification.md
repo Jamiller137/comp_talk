@@ -209,7 +209,13 @@ if all pairwise distances satisfy: $d(x_{i_j}, x_{i_k}) \leq \epsilon$
 </svg>
 
 
-**Properties**:
+## $VR_{\epsilon}$ Definition:
+For point cloud $X$ in a metric space and a given threshold $\epsilon \in \mathbb{R}^{\geq 0}$:
+
+$$VR_\epsilon(X) = \\{\sigma \subseteq X : \text{diam}(\sigma) \leq \epsilon\\}$$
+
+
+## $VR_{\epsilon}$ Properties:
 - $\\check{C}_\epsilon (X) \subseteq VR_\epsilon(X)$ as a subcomplex
 - 1-skeleton (vertices + edges) are equal for Rips and Cech complex.
 - The Rips Complex may include additional "hollow" simplices:
@@ -251,14 +257,19 @@ Rips Complex distance comparisons in $O(n^2)$ time.
 </p>
 
 
-## Witness Complex
+## The (Strict) Witness Complex 
+$$\text{Wit}_\infty(L, W)$$
 
 **Definition**: Given landmarks and witnesses $$L, W \subset X$$
 
-$\sigma \subseteq L$ is included as a simplex in $\text{Wit}(L, W)$ if it is 'witnessed' by some point $w \in W$.
+$\sigma \subseteq L$ is included as a simplex in $\text{Wit}_\infty(L, W)$ if it is 'witnessed' by some point $w \in W$.
+
+<p style="font-size: 0.55em; margin: 0;">
+  Silva, V., &amp; Carlsson, G. (2004). <em>Topological estimation using witness complexes</em>. Proc. Sympos. Point-Based Graphics.
+</p>
 
 
-## A Partial Witness Complex:
+## A Witness Complex:
 <!-- Witness complex with one witness and a dotted blue witness ball -->
 <svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg" style="max-width: 90%; height: auto;">
   <defs>
@@ -308,10 +319,44 @@ $\sigma \subseteq L$ is included as a simplex in $\text{Wit}(L, W)$ if it is 'wi
   <text x="308" y="319" class="label" style="font-weight: 400; opacity: 0.8;">Dotted circle includes only {L1, L2, L3}</text>
 </svg>
 
-**Definition**: For point cloud $X$ in a metric space and a given threshold $\epsilon \in \mathbb{R}^{\geq 0}$:
 
-$$VR_\epsilon(X) = \\{\sigma \subseteq X : \text{diam}(\sigma) \leq \epsilon\\}$$
-## $\sigma \subset L$ witnessed by $w$ if:
+## $\text{Wit}_\infty (L, W)$ Construction:
 
-$$d(w, l) \leq d(w, L \setminus \sigma) + \epsilon$$
-for all $l \in \sigma$
+1. The vertex set is $L$.
+
+2. Add an edge $(l_i , l_j)$ if they are the two closest landmarks to some witness (ties allowed)
+
+3. Add the $k$-simplex $(l_{i_0} , \dots, l_{i_{k}} )$ if all of its faces exist and it is the ($k+1$)-nearest neighbors to some witness (ties allowed)
+
+
+## The (Lazy) Witness Complex:
+$\text{Wit}(L, W)$
+
+*Lazy is to Strict as Rips is to Cech*
+
+- Same 1-skeleton as $\text{Wit}_\infty(L, W)$
+
+- Include the simplex $\sigma$ if all of its edges are included.
+
+
+## The (Laziest) Witness Complex:
+$ \text{Wit}_{\epsilon}(L, W; \nu)$ where $\epsilon \in \mathbb{R}^{+}$ and $\nu \in \mathbb{N}$
+
+The edge $(l_i, l_j)$ is included if there is a witness $w_i$ whose $(d^{\nu}(w_i) + \epsilon)$-neighborhood contains $l_i$ and $l_j$ 
+
+where $d^\nu (w_i)$ is the distance from $w_i$ to its 
+
+$\nu^{\text{th}}$-nearest neighbor in $L$.
+
+Then fill in all possible higher dimensional simplices.
+
+
+## Laziest Properties:
+When $\nu = 0$ is closely related to $VR_\epsilon$
+
+When $\nu = 2$ and $\epsilon = 0$ we have:
+$$\text{Wit}_{0}(L, W; 2) = \text{Wit}(L, W)$$
+
+<p style="font-size: 0.55em; margin: 0;">
+  Silva, V., &amp; Carlsson, G. (2004). <em>Topological estimation using witness complexes</em>. Proc. Sympos. Point-Based Graphics.
+</p>
