@@ -122,11 +122,17 @@ The two are equivalent if each pairwise intersection $U_i \cap U_j$ is either em
 </svg>
 
 
+## Applying Nerve Theorem
+We know how to construct the nerve from an open cover of a manifold.
+
+**Question:** How do we use the nerve theorem when given a sampling from a manifold?
+
+
 ## Čech Complex
 
 **Construction**:
 1. Create an open cover of our sampling $X$ with balls of radius $\frac{\epsilon}{2}$ centered at each $\vec{x} \in X$.
-2. $\\check{C}_\epsilon (X)$ is then the nerve of this open cover which approximates the nerve of $M$.
+2. $\\check{C}_\epsilon (X)$ is then the nerve of this open cover.
 
 $$ \sigma \in \check{C}\_{\epsilon}(X) \iff \bigcap_{\vec{x}_{k} \in \sigma} B(\vec\{x\}_\{k\}, \frac{\epsilon}{2}) \neq \emptyset $$
 
@@ -209,6 +215,42 @@ if all pairwise distances satisfy: $d(x_{i_j}, x_{i_k}) \leq \epsilon$
 - The Rips Complex may include additional "hollow" simplices:
 
 
+## Curse of Dimensionality
+In high dimensions, geometric intuition breaks down 
+and common computations are exponentially more expensive.
+
+$\frac{V_\text{hypersphere}}{V_\text{hypercube}} = \frac{\pi^{d/2}}{d2^{d-1}\Gamma(d/2)} \to 0 \text{ as } d \to \infty $
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300" style="max-width: 70%; height: auto;" >
+  <defs>
+    <radialGradient gradientUnits="userSpaceOnUse" cx="269.467" cy="330.533" r="69.467" id="gradient-0" gradientTransform="matrix(0.866555, 0, 0, 0.866555, 114.522033, -130.979114)">
+      <stop offset="0" style="stop-color: rgb(50.588% 100% 93.333%)"></stop>
+      <stop offset="1" style="stop-color: rgb(0% 59.236% 53.779%)"></stop>
+    </radialGradient>
+  </defs>
+  <rect x="81.459" y="87.833" width="135.342" height="135.342" style="stroke: rgb(0, 0, 0); fill: rgb(255, 0, 0);"></rect>
+  <ellipse style="stroke: rgb(0, 0, 0); fill: rgba(72, 240, 255, 0.8);" cx="149.13" cy="155.504" rx="67.671" ry="67.671"></ellipse>
+  <path style="stroke: rgb(0, 0, 0); fill: rgba(255, 0, 0, 0.61);" d="M 273.233 127.476 L 372.19 127.231"></path>
+  <ellipse style="stroke: rgb(0, 0, 0); fill: url(#gradient-0);" cx="348.03" cy="155.446" rx="60.197" ry="60.197"></ellipse>
+  <text style="fill: rgb(255, 255, 255); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px; white-space: pre;" x="308.806" y="162.934">52.4%</text>
+  <rect x="272.19" y="127.231" width="100" height="100" style="stroke: rgb(0, 0, 0); fill: rgba(255, 0, 0, 0.61);"></rect>
+  <path style="stroke: rgb(0, 0, 0); fill: rgba(255, 0, 0, 0.61);" d="M 273.233 126.317 L 323.638 80.546 L 422.711 80.546 L 372.19 127.231 L 273.233 126.317 Z"></path>
+  <path style="stroke: rgb(0, 0, 0); fill: rgba(255, 0, 0, 0.61);" d="M 423.291 80.546 L 423.87 180.778 L 372.19 227.231 L 372.19 127.231 L 423.291 80.546 Z"></path>
+  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px;" x="110.08" y="163.512">78.5%</text>
+</svg>
+
+
+## Complexity of $VR_\epsilon$ and $\check{C}_{\epsilon}$
+
+Cech complex $k$-skeleton in $O(n^{k+1})$ time.
+
+Rips Complex distance comparisons in $O(n^2)$ time. 
+- The number of cliques grows exponentially so the enumeration step will dominate.
+
+<p style="font-size: 0.55em; margin: 0;">
+  Zomorodian, A. (2010). <em>Fast construction of the Vietoris-Rips complex</em>. Computers & Graphics, 34(3), 263–271.
+</p>
+
+
 ## Witness Complex
 
 **Definition**: Given landmarks and witnesses $$L, W \subset X$$
@@ -274,12 +316,6 @@ $$VR_\epsilon(X) = \\{\sigma \subseteq X : \text{diam}(\sigma) \leq \epsilon\\}$
 $$d(w, l) \leq d(w, L \setminus \sigma) + \epsilon$$
 for all $l \in \sigma$
 
-
-## Curse of Dimensionality
-In high dimensions, geometric intuition breaks down 
-and common computations are exponentially more expensive.
-
-$$\frac{V_\text{hypersphere}}{V_\text{hypercube}} = \frac{\pi^{d/2}}{d2^{d-1}\Gamma(d/2)} \to 0 \text{ as } d \to \infty $$
 
 
 ## Mapper
