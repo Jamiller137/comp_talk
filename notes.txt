@@ -1,0 +1,58 @@
+add figure for nerve theorem circle cover example
+
+Witness complex adds tie (remove probably)
+
+Every slide have a figure with it
+
+Rule: EVERY SLIDE SHOULD HAVE A PICTURE
+
+references: Mapper Algorithm, Rips, Cech, to everything when I can
+
+add vector notation
+
+U M_i^d_i
+
+could say x_i = m_j + noise vector random :)
+
+citation figure
+
+Generally do construction before definition
+
+How to construct nerve for data?
+
+
+
+
+
+
+
+
+New Outline:
+
+TDA
+
+Background
+
+Cech 
+
+Rips
+
+Curse of Dimensionality
+
+Complexity of Cech and Rips
+
+Lazy Witness Complex
+
+Persistent Homology
+
+Lazy Witness Complex as an approximation to Rips with filtration guarantees
+
+Plug Mapper
+
+Mapper Persistence and Stability
+
+Visualization Methods: Current Packages
+
+Natural Image Dataset: 
+
+

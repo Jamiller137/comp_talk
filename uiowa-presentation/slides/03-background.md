@@ -14,7 +14,6 @@ Relies on the *Manifold Hypothesis*
 3. Visualization Methods
 
 
-
 ## Constructing Topological Spaces from Data
 
 **Problem**: Raw data lacks inherent topological structure.
@@ -32,9 +31,9 @@ Build simplicial complex which approximates the topology of $M$.
 A simplicial complex is a family of sets which is closed under taking subsets.
 
 <div style="text-align: left;">
-        $\Delta^{0} = \{ 1\}, \{ 2\}, \{ 3\}, \{ 4\}, \{ 5\}$----------- Vertices
-        $\Delta^{1} = \{ 1, 2\}, \{ 2, 3\}, \{ 1, 3\} \{ 1, 4\}$------ Edges
-        $\Delta^{2} =  \{ 1, 2, 3\}$-------------------------------- Faces
+        $\Delta^{0} = \{ 1\}, \{ 2\}, \{ 3\}, \{ 4\}, \{ 5\}$------------ Vertices
+        $\Delta^{1} = \{ 1, 2\}, \{ 2, 3\}, \{ 1, 3\} \{ 1, 4\}$------- Edges
+        $\Delta^{2} =  \{ 1, 2, 3\}$--------------------------------- Faces
 </div>
 
 #### Geometric Realization
@@ -171,20 +170,10 @@ $\\check{C}\_\\epsilon(X) = \left\\{\sigma \subseteq X : \bigcap_{x \in \sigma} 
 
 ## Vietoris-Rips Complex
 
-**Definition**: For point cloud $X$ in a metric space and a given threshold $\epsilon \in \mathbb{R}^{\geq 0}$:
+$\sigma = \{(x_{i_0}, x_{i_1}, \ldots, x_{i_k})\} \in VR_\epsilon(X)$
+if all pairwise distances satisfy: $d(x_{i_j}, x_{i_k}) \leq \epsilon$
 
-$$VR_\epsilon(X) = \\{\sigma \subseteq X : \text{diam}(\sigma) \leq \epsilon\\}$$
-
-
-**Construction**:
-
-$$\sigma = \{(x_{i_0}, x_{i_1}, \ldots, x_{i_k})\} \in VR_\epsilon(X)$$
-if all pairwise distances satisfy:
-  $$d(x_{i_j}, x_{i_k}) \leq \epsilon$$
-
-
-## Image of Rips Complex:
-<svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg" style="max-width: 90%; height: auto;">
+<svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg" style="max-width: 50%; height: auto;">
   <defs>
     <style>
       .label { font: 600 16px system-ui, -apple-system, Segoe UI, Roboto, sans-serif; fill: currentColor; }
@@ -278,7 +267,9 @@ $\sigma \subseteq L$ is included as a simplex in $\text{Wit}(L, W)$ if it is 'wi
   <text x="308" y="319" class="label" style="font-weight: 400; opacity: 0.8;">Dotted circle includes only {L1, L2, L3}</text>
 </svg>
 
+**Definition**: For point cloud $X$ in a metric space and a given threshold $\epsilon \in \mathbb{R}^{\geq 0}$:
 
+$$VR_\epsilon(X) = \\{\sigma \subseteq X : \text{diam}(\sigma) \leq \epsilon\\}$$
 ## $\sigma \subset L$ witnessed by $w$ if:
 
 $$d(w, l) \leq d(w, L \setminus \sigma) + \epsilon$$
@@ -299,11 +290,17 @@ $$\frac{V_\text{hypersphere}}{V_\text{hypercube}} = \frac{\pi^{d/2}}{d2^{d-1}\Ga
 <div class="uiowa-logo">
     <img src="images/brad.jpg" alt="University of Iowa" style="height: 250px;">
 </div>
-
-*(Singh, Mémoli, Carlsson)*
+<p style="font-size: 0.55em; margin: 0;">
+  Welch, D. (n.d.). <em>We're going to recreate Toney in the aggregate.</em> Medium. 
+  <a href="https://medium.com/@duncanwelch31/were-going-to-recreate-toney-in-the-aggregate-4a4dfe370b1c">https://medium.com/@duncanwelch31/were-going-to-recreate-toney-in-the-aggregate-4a4dfe370b1c</a>
+</p>
 
 
 ## Mapper Ingredients
+
+<p style="font-size: 0.55em; margin: 0;">
+  Singh, G., Mémoli, F., &amp; Carlsson, G. E. (2007). <em>Topological methods for the analysis of high dimensional data sets and 3d object recognition</em>. In SPBG (pp. 91–100).
+</p>
 
 <div style="text-align: left;">
     <ol>
