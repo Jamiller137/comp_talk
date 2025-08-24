@@ -140,7 +140,7 @@ Evidence supports the following:
 
 ## 2-Manifold
 
-$\beta_{2} = 1$ in $\mathbb{Z}/2\mathbb{Z}$ is evidence that we have a surface.
+$\beta_{2} = 1$ is evidence that we have a surface.
 <div class="uiowa-logo">
     <img src="images/natural_barcodes.png" alt="University of Iowa" style="max-width: 30%;">
 </div>
@@ -156,8 +156,11 @@ They conclude you can parameterize this space with a Klein bottle:
 </div>
 
 
+### Goal:
+Implement a similar qualitative analysis with mapper.
 
-### Goal: Obtain result using mapper analysis
+- This would require an interactive exploratory tool for mapper
+    - Manipulate and decompose simplicial complex
 
 
 ### Zen-Sight
