@@ -24,16 +24,16 @@ Relies on the *Manifold Hypothesis*
 ## General Framework:
 Given a point-cloud $X = \\{\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_n\\} \mathrel{\substack{\subset \\\ \sim}} \bigcup M_\{i\}^\{d_\{i\}\} \subset \mathbb{R}^d$
 
-Build simplicial complex which approximates the topology of $M$.
+- Build simplicial complex which approximates the topology of $M$.
 
 
 ## Simplicial Complex:
-A simplicial complex is a family of sets which is closed under taking subsets.
+- A simplicial complex is a family of sets which is closed under taking subsets:
 
 <div style="text-align: left;">
-        $\Delta^{0} = \{ 1\}, \{ 2\}, \{ 3\}, \{ 4\}, \{ 5\}$------------ Vertices
-        $\Delta^{1} = \{ 1, 2\}, \{ 2, 3\}, \{ 1, 3\} \{ 1, 4\}$------- Edges
-        $\Delta^{2} =  \{ 1, 2, 3\}$--------------------------------- Faces
+        $\text{Vertices} = \Delta^{0} = \{ 1\}, \{ 2\}, \{ 3\}, \{ 4\}, \{ 5\}$
+        $\text{Edges} = \Delta^{1} = \{ 1, 2\}, \{ 2, 3\}, \{ 1, 3\}, \{ 1, 4\}$
+        $\text{Faces} = \Delta^{2} =  \{ 1, 2, 3\}$
 </div>
 
 #### Geometric Realization

@@ -1,4 +1,4 @@
-# Mapper Stability and Visualization
+# Mapper Stability and Visualization Methods
 
 ### Comprehensive Exam
 

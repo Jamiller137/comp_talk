@@ -8,13 +8,15 @@
 
 .reveal {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 40px;
+    font-size: 38px;
     font-weight: normal;
+    text-align: left;
     color: #222;
+    line-height: 1.5;
 }
 
 .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
-    margin: 0 0 20px 0;
+    margin: 0 0 -5px 0;
     color: var(--uiowa-black);
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 600;
@@ -44,7 +46,7 @@
 /* Title slide styling */
 .title-slide {
     text-align: center;
-    padding: 2em;
+    padding: 1em;
 }
 
 .title-slide h1 {
@@ -103,13 +105,15 @@
 }
 
 /* Lists */
-.reveal ul {
+.reveal ul, .reveal ol {
     display: block;
     margin-left: 1em;
+    text-align: left;
 }
 
-.reveal ul li {
+.reveal ul li, .reveal ol li {
     margin-bottom: 0.5em;
+    text-align: left;
 }
 
 /* Links */
