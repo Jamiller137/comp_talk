@@ -23,3 +23,6 @@ A Python package for interactive visualization of simplicial complexes.
 - Timeline system to go between operations
 - A NetworkX and Zen Mapper wrapper
 
+
+## Circle Demonstration:
+

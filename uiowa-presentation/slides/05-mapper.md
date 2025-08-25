@@ -117,7 +117,6 @@ It has been shown that the mapper algorithm with certain parameter choices for t
 1. There are many parameter choices to consider:
     - Varying filter function, covering and clustering schemes can dramatically change the result.
 2. There are not guarantees that the result from any given parameter selection is stable.
-3. Loss of global information?
 
 
 ## Parameter Choice Matters:
@@ -223,11 +222,15 @@ It has been shown that the mapper algorithm with certain parameter choices for t
 </svg>
 
 
-## Approaches to Parameter Selection:
-- G-Mapper and more
+## Some Approaches to Parameter Selection:
+- **G-Mapper** (Normal dist.-based Cover Selection)
+<p style="font-size: 0.55em; margin: 0;">
+  Alvarado, E., Belton, R., Fischer, E., Lee, K.-J., Palande, S., Percival, S., &amp; Purvine, E. (2025). <em>G-Mapper: Learning a Cover in the Mapper Construction</em>. arXiv:2309.06634. 
+  <a href="https://arxiv.org/abs/2309.06634">https://arxiv.org/abs/2309.06634</a>
+</p>
 
-
-## WIP: Using Data Assimilation methods to select parameters:
-
-
-## Examples Applications in Literature:
+- **Ball Mapper** (Reduces to a single $\epsilon$ parameter)
+<p style="font-size: 0.55em; margin: 0;">
+  Dłotko, P. (2019). <em>Ball mapper: a shape summary for topological data analysis</em>. arXiv:1901.07410. 
+  <a href="https://arxiv.org/abs/1901.07410">https://arxiv.org/abs/1901.07410</a>
+</p>

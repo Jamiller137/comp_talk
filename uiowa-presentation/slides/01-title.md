@@ -1,4 +1,4 @@
-# Mapper Stability and Visualization Methods
+# Topological Data Analysis
 
 ### Comprehensive Exam
 

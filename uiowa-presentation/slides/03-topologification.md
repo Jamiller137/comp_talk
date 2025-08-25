@@ -24,7 +24,7 @@ Relies on the *Manifold Hypothesis*
 ## General Framework:
 Given a point-cloud $X = \\{\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_n\\} \subset M = \bigcup M_\{i\}^\{d_\{i\}\} \subset \mathbb{R}^d$
 
-- Build simplicial complex which approximates the topology of $M$.
+- Build a simplicial complex which approximates the topology of $M$.
 
 
 ## Simplicial Complex:
