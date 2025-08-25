@@ -18,6 +18,8 @@
             nodePackages.npm
             nodePackages.live-server
             wl-clipboard
+            decktape
+            python313
           ];
 
           shellHook = ''
