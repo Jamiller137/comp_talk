@@ -208,7 +208,7 @@ So in theory with a representative landmark set satisfying the $\epsilon$-net co
 persistence in the Cech complex filtration via a laziest witness complex filtration.  
 
 
-**Problem:** May still require a large high-dimensional Landmark set for it to be representative.
+**Problem:** May still require a large Landmark set for it to be representative.
 
 
 **Problem:** Curse of dimensionality makes it so that nearest neighbors is not stable under noise.

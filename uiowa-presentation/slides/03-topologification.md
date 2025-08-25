@@ -22,7 +22,7 @@ Relies on the *Manifold Hypothesis*
 
 
 ## General Framework:
-Given a point-cloud $X = \\{\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_n\\} \mathrel{\substack{\subset \\\ \sim}} \bigcup M_\{i\}^\{d_\{i\}\} \subset \mathbb{R}^d$
+Given a point-cloud $X = \\{\vec{x}_1, \vec{x}_2, \ldots, \vec{x}_n\\} \subset M = \bigcup M_\{i\}^\{d_\{i\}\} \subset \mathbb{R}^d$
 
 - Build simplicial complex which approximates the topology of $M$.
 
@@ -134,7 +134,7 @@ We know how to construct the nerve from an open cover of a manifold.
 1. Create an open cover of our sampling $X$ with balls of radius $\frac{\epsilon}{2}$ centered at each $\vec{x} \in X$.
 2. $\\check{C}_\epsilon (X)$ is then the nerve of this open cover.
 
-$$ \sigma \in \check{C}\_{\epsilon}(X) \iff \bigcap_{\vec{x}_{k} \in \sigma} B(\vec\{x\}_\{k\}, \frac{\epsilon}{2}) \neq \emptyset $$
+$$ \sigma \in \check{C}\_{\epsilon}(X) \iff \bigcap_{\vec{x}_{k} \in \sigma} B\left(\vec\{x\}_\{k\}, \frac{\epsilon}{2}\right) \neq \emptyset $$
 
 
 ## Image of Cech Complex
@@ -217,8 +217,8 @@ $$VR_\epsilon(X) = \\{\sigma \subseteq X : \text{diam}(\sigma) \leq \epsilon\\}$
 
 ## $VR_{\epsilon}$ Properties:
 - $\\check{C}_\epsilon (X) \subseteq VR_\epsilon(X)$ as a subcomplex
-- 1-skeleton (vertices + edges) are equal for Rips and Cech complex.
-- The Rips Complex may include additional "hollow" simplices:
+- $1$-skeletons are identical
+- The Rips Complex may include additional simplices:
 
 
 ## Curse of Dimensionality
@@ -284,10 +284,8 @@ $\sigma \subseteq L$ is included as a simplex in $\text{Wit}_\infty(L, W)$ if it
 
   <!-- One witness -->
   <circle cx="300" cy="240" r="7" class="witness"/>
-  <circle cx="345" cy="310" r="7" class="witness"/>
   <circle cx="230" cy="120" r="7" class="witness"/>
   <text x="312" y="244" class="label" style="font-weight: 500;">w</text>
-  <text x="312" y="314" class="label" style="font-weight: 500;">w''</text>
   <text x="242" y="124" class="label" style="font-weight: 500;">w'</text>
 
   <!-- Dotted blue circle centered at the witness; radius chosen to include only L1, L2, L3 -->
@@ -298,10 +296,10 @@ $\sigma \subseteq L$ is included as a simplex in $\text{Wit}_\infty(L, W)$ if it
   <!-- Landmarks (three inside the witness circle forming the face) -->
   <circle cx="200" cy="300" r="6" class="landmark"/>
   <circle cx="400" cy="300" r="6" class="landmark"/>
-  <circle cx="300" cy="150" r="6" class="landmark"/>
+  <circle cx="300" cy="124" r="6" class="landmark"/>
   <text x="188" y="322" class="label">L1</text>
   <text x="408" y="322" class="label">L2</text>
-  <text x="312" y="150" class="label">L3</text>
+  <text x="312" y="140" class="label">L3</text>
 
   <!-- Additional landmarks (all outside the witness circle) -->
   <circle cx="460" cy="120" r="6" class="landmark"/>
@@ -310,9 +308,9 @@ $\sigma \subseteq L$ is included as a simplex in $\text{Wit}_\infty(L, W)$ if it
   <text x="168" y="170" class="label">L4</text>
 
   <!-- Witness complex edges for {L1, L2, L3}; face is invisible (fill: none) -->
-  <polygon points="200,300 400,300 300,150" class="edge"/>
+  <polygon points="200,300 400,300 300,124" class="edge"/>
 
-  <line x1="180" y1="180" x2="300" y2="150" class="edge"/>    
+  <line x1="180" y1="180" x2="300" y2="124" class="edge"/>    
 
   <!-- Caption -->
   <text x="308" y="300" class="label" style="font-weight: 500;">Witness complex</text>
@@ -342,13 +340,10 @@ $\text{Wit}(L, W)$
 ## The (Laziest) Witness Complex:
 $ \text{Wit}_{\epsilon}(L, W; \nu)$ where $\epsilon \in \mathbb{R}^{+}$ and $\nu \in \mathbb{N}$
 
-The edge $(l_i, l_j)$ is included if there is a witness $w_i$ whose $(d^{\nu}(w_i) + \epsilon)$-neighborhood contains $l_i$ and $l_j$ 
+1. The edge $(l_i, l_j)$ is included if there is a witness $w_i$ whose $(d^{\nu}(w_i) + \epsilon)$-neighborhood contains $(l_i, l_j)$ 
+2. Then fill in all possible higher dimensional simplices.
 
-where $d^\nu (w_i)$ is the distance from $w_i$ to its 
-
-$\nu^{\text{th}}$-nearest neighbor in $L$.
-
-Then fill in all possible higher dimensional simplices.
+*Laziest* because it forgoes checking nearest neightbors for each simplex added.
 
 
 ## Laziest Properties:

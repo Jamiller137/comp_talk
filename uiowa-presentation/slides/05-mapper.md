@@ -17,29 +17,21 @@
   Singh, G., Mémoli, F., &amp; Carlsson, G. E. (2007). <em>Topological methods for the analysis of high dimensional data sets and 3d object recognition</em>. In SPBG (pp. 91–100).
 </p>
 
-<div style="text-align: left;">
-    <ol>
-      <li>A dataset $X$ with a metric</li>
-        <br></br>
-      <li>A filter function $f:X \to \mathbb{R}^{m}$</li>
-        <br></br>
-      <li>An open cover $\mathcal{U}$ of $f[X]$</li>
-        <br></br>
-      <li>A clustering method on $X$</li>
-    </ol>
-  </div>
+1. A **dataset** $X$ with a metric.
+2. A **filter** (lens) function $f: X \to \mathbb{R}^m$
+3. An **open cover** $\mathcal{U}$ of $f[X]$
+4. A **clustering method** on $X$
 
 
-## Construction
-Pullback each cover element $$\bar{U}_i = f^{-1}[U_i] \subseteq X$$
-$$\downarrow$$
+## Mapper Construction
+1. Apply the filter $f[X]$
+2. Apply covering scheme on the image.
+3. Pullback each cover element $$V_i = f^{-1}[U_i] \subseteq X$$
+4. Apply the clustering method inside each $V_i$
+5. Build the nerve from the set of all resulting clusters.
 
-Cluster points in each $\bar{U}_i$
-$$\downarrow$$
-Build the nerve from the set of all resulting clusters.
 
-
-## Mapper
+## Mapper Diagram
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="100 100 300 300" style="max-width: 60%; height: auto;">
   <rect x="130.889" y="100" width="60.7" height="177.157" style="stroke: rgb(0, 0, 0); fill: rgba(255, 178, 178, 0.525);"></rect>
   <rect x="183.15" y="100.085" width="60.7" height="177.157" style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgba(255, 238, 178, 0.525);"></rect>
@@ -106,17 +98,12 @@ Build the nerve from the set of all resulting clusters.
 
 
 ## Mapper filtration:
+It has been shown that the mapper algorithm with certain parameter choices for the filter function, cover scheme, and clustering method will yield filtrations.
+
+- DBSCAN with $\text{MinPts} \leq 2$ gives a filtration over $\epsilon$
 
 <p style="font-size: 0.55em; margin: 0;">
   Bungula, W., &amp; Darcy, I. (2024). <em>Bi-Filtration and Stability of TDA Mapper for Point Cloud Data</em>. arXiv:2409.17360. 
   <a href="https://arxiv.org/abs/2409.17360">https://arxiv.org/abs/2409.17360</a>
 </p>
 
-
-## Stability in Mapper Parameter Choices
-
-( do last)
-
-Maper Similarity Metric
-
-Previous work on estimating parameters

@@ -14,3 +14,14 @@ Implement a similar qualitative analysis with mapper.
 - **Data Integration**: Include with original data for analysis
 
 
+## Stability in Mapper Parameter Choices
+
+( do last)
+
+Maper Similarity Metric
+
+Previous work on estimating parameters
+
+
+
+

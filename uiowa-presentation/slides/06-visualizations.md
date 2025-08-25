@@ -1,24 +1,20 @@
-## Visualization/Analysis Methods
+## Visualization/Analysis Methods and Tools
 
-1. Multi-scale summaries of homology
-
+1. Summaries of homology
     - Persistence Diagrams
+    - Barcode Diagrams
+2. Nerve representations
+    - Cech, Rips, Witness Complexes
+    - Mapper Complex
 
-2. Fixed-scale nerve representations
 
-    - Simplicial representations (Cech complex, etc.)
-    - Mapper
+## Common Computation Engines and Libraries:
+- Dionysus 2, GUDHI, SciKit-TDA
 
-
-## Current Tools:
-- Ripser
-- CeREEBrus
-- Kepler Mapper
-- Dionysus
-- GHUDI
-- Zen Mapper
-- TDAView
-- MappeR
+## UIowa-Developed Tools
+- *Zen Mapper*: Minimal, extensible implementation (Dr. Ethan Rooke)
+- *MappeR*: Implementation of Mapper algorithm in R
+(George Clare Kennedy)
 
 
 ## Natural Image Space Setup
@@ -33,9 +29,7 @@ Given a grid of grayscale pixels, a major focus of computer vision research is s
 
 
 ## Major Problem
-The space of such images globally has as many dimensions as there are pixels which makes analysis intractible.
-
-To reduce this dimensionality problem, most analysis is done locally.
+The space of such images has at least as many dimensions as there are pixels.
 
 
 ## Natural Images Analysis
@@ -106,13 +100,12 @@ Have shown evidence for a high-density manifold whose 1-skeleton follows the thr
 ## Pre-processing Flowchart:
 <div style="text-align: left;">
   <ul>
-    <li>Randomly sample 5000 patch vectors in $\mathbb{R}^9$ </li>
-    <li>Take logarithm </li>
-    <li>Subtract average of all coordinates from each coordinate</li>
-    <li>Compute contrast or "D-norm" of the vector</li>
-    <li>Keep the patch if it is among the top 20% of all patches</li>
-    <li>Normalize by D-norm to place on a 7-dim ellipsoid</li>
-    <li>Change coordinates so that the set lies on the 7-dimensional sphere in $\mathbb{R}^8$ </li>
+    <li>Randomly sample 5000 patch vectors in $\mathbb{R}^9$. </li>
+    <li>Take the logarithm of each component. </li>
+    <li>Subtract average of all coordinates from each component.</li>
+    <li>Compute contrast or "D-norm" of the vector.</li>
+    <li>Keep the patch if its contrast is among the top 20%.</li>
+    <li>Change coordinates so that the set lies on the 7-dimensional sphere in $\mathbb{R}^8$. </li>
   </ul>
 </div>
 
