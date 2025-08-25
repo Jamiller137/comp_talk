@@ -247,10 +247,9 @@ $\frac{V_\text{hypersphere}}{V_\text{hypercube}} = \frac{\pi^{d/2}}{d2^{d-1}\Gam
 
 ## Complexity of $VR_\epsilon$ and $\check{C}_{\epsilon}$
 
-Cech complex $k$-skeleton in $O(n^{k+1})$ time.
-
-Rips Complex distance comparisons in $O(n^2)$ time. 
-- The number of cliques grows exponentially so the enumeration step will dominate.
+- Cech complex $k$-skeleton in $O(n^{k+1})$ time.
+- Rips Complex distance comparisons in $O(n^2)$ time. 
+    - The number of cliques grows exponentially so the enumeration step will dominate.
 
 <p style="font-size: 0.55em; margin: 0;">
   Zomorodian, A. (2010). <em>Fast construction of the Vietoris-Rips complex</em>. Computers & Graphics, 34(3), 263–271.

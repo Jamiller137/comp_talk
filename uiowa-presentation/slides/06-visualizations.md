@@ -9,12 +9,26 @@
 
 
 ## Common Computation Engines and Libraries:
-- Dionysus 2, GUDHI, SciKit-TDA
-
-## UIowa-Developed Tools
-- *Zen Mapper*: Minimal, extensible implementation (Dr. Ethan Rooke)
-- *MappeR*: Implementation of Mapper algorithm in R
-(George Clare Kennedy)
+<div style="display: flex; align-items: flex-start; gap: 2rem;">
+  <!-- Left Column - Text -->
+  <div style="flex: 1;">
+    <ul>
+      <li>Giotto-TDA, GUDHI, and SciKit-TDA</li>
+      <li><em>Zen Mapper</em> <br> (Dr. Ethan Rooke)</li>
+      <li><em>MappeR</em> <br> (George Clare Kennedy)</li>
+    </ul>
+  </div>
+  
+  <!-- Right Column - Images Stacked -->
+  <div style="flex: 1; display: flex; flex-direction: column; gap: 1rem; align-items: center;">
+    <div class="uiowa-logo">
+      <img src="images/libraries.png" alt="University of Iowa" style="height: 120px;">
+    </div>
+    <div class="uiowa-logo">
+      <img src="images/uiowa_software.png" alt="University of Iowa" style="height: 120px;">
+    </div>
+  </div>
+</div>
 
 
 ## Natural Image Space Setup
