@@ -13,12 +13,8 @@ $$\Delta_0 \subseteq \Delta_1 \subseteq \Delta_2 \subseteq \cdots \subseteq \Del
 
 
 ## Examples:
-If $0 \leq \epsilon' \leq \epsilon < \infty$ then:
 
-$VR\_{\epsilon'}(X) \subseteq VR_\epsilon(X)$, 
-
-$\check{C}\_{\epsilon'}(X) \subseteq \check{C}\_\epsilon(X)$, 
-$\text{Wit}\_{\epsilon'}(L, W; \nu) \subseteq \text{Wit}\_{\epsilon}(L, W; \nu) $
+$ \check{C}\_\epsilon(X), VR_\epsilon(X), \text{and } \text{Wit}\_{\epsilon}(L, W)$ all are filtrations with respect to the parameter $\epsilon$.
 
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" xmlns:bx="https://boxy-svg.com" style="max-width: 100%; height: auto; ">
   <defs>
@@ -37,8 +33,8 @@ $\text{Wit}\_{\epsilon'}(L, W; \nu) \subseteq \text{Wit}\_{\epsilon}(L, W; \nu) 
   <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px; stroke-width: 1px;" x="144.583" y="102.435">⊆</text>
   <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 3px;" d="M 71.367 146.095 L 105.787 144.836"></path>
   <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 3px; stroke-dasharray: 5px;" d="M 693.955 150.294 L 740.554 72.628"></path>
-  <path style="stroke: rgb(0, 0, 0); stroke-width: 3px; fill: rgb(253, 255, 167);" d="M 535.684 144.416 L 583.123 67.17 L 520.151 45.76 L 535.684 144.416 Z"></path>
-  <path style="stroke-width: 3px; stroke: rgb(0, 0, 0); fill: rgb(164, 255, 169);" d="M 534.845 147.355 L 581.864 67.17 L 573.048 141.898 L 534.845 147.355 Z"></path>
+  <path style="stroke: rgb(0, 0, 0); stroke-width: 3px; fill: none;" d="M 535.684 144.416 L 583.123 67.17 L 520.151 45.76"></path>
+  <path style="stroke-width: 3px; stroke: rgb(0, 0, 0); fill: rgb(100, 160, 100);" d="M 534.845 147.355 L 581.864 67.17 L 573.048 141.898 L 534.845 147.355 Z"></path>
   <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px;" x="77.666" y="185.559">ε</text>
   <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px; stroke-width: 1px;" x="227.596" y="184.299">ε</text>
   <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px; stroke-width: 1px;" x="387.126" y="183.669">ε</text>
@@ -70,6 +66,12 @@ $\text{Wit}\_{\epsilon'}(L, W; \nu) \subseteq \text{Wit}\_{\epsilon}(L, W; \nu) 
   <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgb(130, 160, 255);" cx="117.464" cy="66.331" rx="6.675" ry="6.675"></ellipse>
   <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgb(130, 160, 255);" cx="69.815" cy="145.13" rx="6.675" ry="6.675"></ellipse>
 </svg>
+
+
+## Real Example:
+<div class="uiowa-logo">
+    <img src="images/filtration_visualization.png" alt="University of Iowa" style="max-width: 75%;">
+</div>
 
 
 ## Homology
@@ -162,6 +164,20 @@ Tracks how homological features evolve across a filtration of simplicial complex
   <path style="fill: rgba(216, 216, 216, 0); stroke: rgba(255, 0, 0, 0.447);" d="M 148.996 198.114 C 145.143 200.04 135.798 198.759 133.063 201.493 C 132.65 201.906 129.925 201.009 129.683 201.493 C 128.466 203.927 107.264 204.936 106.025 202.459 C 105.512 201.432 99.658 203.333 98.783 202.459 C 93.27 196.946 83.465 196.314 77.54 190.389 C 69.31 182.16 58.481 169.272 47.605 163.834 C 42.619 161.341 40.473 155.199 35.535 152.729 C 31.422 150.673 30.567 141.967 27.81 139.211 C 25.873 137.274 29.213 131.094 29.741 130.037 C 31.888 125.744 31.816 120.72 35.052 117.484 C 39.683 112.853 46.314 107.671 50.502 103.483 C 53.084 100.901 59.542 101.202 62.572 98.172 C 72.787 87.956 96.104 87.067 112.302 87.067 C 118.027 87.067 132.352 85.873 135.477 88.998 C 136.254 89.775 141.774 88.073 142.236 88.998 C 143.647 91.819 156.162 90.371 158.652 92.861 C 159.29 93.499 162.62 92.914 163.48 93.344 C 168.161 95.684 176.14 94.899 179.413 98.172 C 182.921 101.68 190.19 109.489 193.897 110.725 C 196.048 111.442 196.287 115.299 198.725 116.519 C 203.92 119.116 205.232 128.946 210.313 131.486 C 210.952 131.805 210.893 134.963 211.278 135.348 C 216.167 140.236 215.29 154.363 212.727 159.489 C 206.534 171.875 193.642 176.16 183.275 186.526 C 180.111 189.691 173.917 188.642 170.239 192.32 C 167.25 195.31 162.208 193.68 159.135 195.217 C 155.119 197.225 148.894 199.562 145.133 199.562"></path>
   <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); paint-order: fill markers; stroke-dasharray: 5px, 10px;" d="M 200 118.45 L 382.677 44.096"></path>
 </svg>
+
+
+## Persistence Barcodes:
+
+An alternative representation of persistent homology:
+- Each feature becomes a horizontal bar 
+- Bar length = $\epsilon_\text{birth} - \epsilon_\text{death}$
+- Bar position = birth time 
+
+
+## Real Example: 
+<div class="uiowa-logo">
+    <img src="images/noisy_circle_h1.png" alt="University of Iowa" style="max-width: 100%;">
+</div>
 
 
 ## Approximating Cech Complex Persistence

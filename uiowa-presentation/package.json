@@ -7,13 +7,17 @@
     "start": "python -m http.server 8000",
     "dev": "python -m http.server 8000"
   },
-  "keywords": ["reveal.js", "presentation", "mathjax"],
+  "keywords": [
+    "reveal.js",
+    "presentation",
+    "mathjax"
+  ],
   "author": "",
   "license": "ISC",
   "description": "University of Iowa Comprehensive Exam Presentation",
   "dependencies": {
-    "reveal.js": "^4.6.1",
-    "mathjax": "^3.2.2"
+    "decktape": "^3.15.0",
+    "mathjax": "^3.2.2",
+    "reveal.js": "^4.6.1"
   }
 }
-

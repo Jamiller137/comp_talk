@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="node_modules/reveal.js/dist/reveal.css">
     <link rel="stylesheet" href="css/uiowa-theme.css">
     <link rel="stylesheet" href="node_modules/reveal.js/plugin/highlight/monokai.css">
+    <link rel="icon" href="data:,">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net;">
 </head>
 <body>
     <div class="reveal">
@@ -69,28 +71,45 @@
     <script src="node_modules/reveal.js/plugin/math/math.js"></script>
     <script src="js/presentation.js"></script>
     <script>
+    // Configure MathJax 3 before Reveal.js loads
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        },
+        startup: {
+            ready: () => {
+                MathJax.startup.defaultReady();
+                MathJax.startup.promise.then(() => {
+                    console.log('MathJax 3 ready');
+                });
+            }
+        }
+    };
+
     Reveal.initialize({
         hash: true,
-        plugins: [ 
-            RevealMarkdown, 
-            RevealHighlight, 
-            RevealNotes, 
-            RevealMath.MathJax3 
-        ],
-        markdown: {
-            smartypants: false
-        },
-        math: {
-            mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
-            config: 'TeX-AMS_HTML-full'
-        }
-    }).then(() => {
-        // Process any math that might have been added via HTML
-        if (window.MathJax) {
-            MathJax.typesetPromise();
-        }
-    });
-</script>
+      plugins: [ 
+          RevealMarkdown, 
+          RevealHighlight, 
+          RevealNotes, 
+          RevealMath.MathJax3 
+      ],
+      markdown: {
+          smartypants: false
+      },
+      math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+          // Remove the config line - it's MathJax 2 syntax
+      }
+  });
+  </script>
+
 
     
 </body>
