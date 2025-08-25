@@ -2,26 +2,10 @@
 Implement a similar qualitative analysis with mapper.
 
 - This would require an interactive exploratory tool for mapper
-    - Manipulate and decompose simplicial complex
+     - Implementation of user-independent parameter selection
+     - A toolkit for operations to be used on the complex
+     - Filtration visualization
+     - Integrate data into visualization to aid analysis
 
 
 ### Zen-Sight
-
-
-### Interactive Exploration
-- **Filtrations**: Animate across parameter ranges  
-- **Mapper Graph**: Manipulate and decompose simplicial complex
-- **Data Integration**: Include with original data for analysis
-
-
-## Stability in Mapper Parameter Choices
-
-( do last)
-
-Maper Similarity Metric
-
-Previous work on estimating parameters
-
-
-
-

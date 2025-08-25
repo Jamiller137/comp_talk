@@ -107,3 +107,29 @@ It has been shown that the mapper algorithm with certain parameter choices for t
   <a href="https://arxiv.org/abs/2409.17360">https://arxiv.org/abs/2409.17360</a>
 </p>
 
+
+## Pros:
+1. For large high-dimensional data mapper is usually **faster** than using Cech, Rips, and Witness complexes.
+2. **Flexible:** Can fine-tune parameters to suit analysis in a particular domain.
+
+
+## Cons:
+1. There are many parameter choices to consider:
+    - Varying filter function, covering and clustering schemes can dramatically change the result.
+2. There are not guarantees that the result from any given parameter selection is stable.
+3. Loss of global information?
+
+
+## Examples Applications in Literature:
+
+
+## Example of Bad Parameter Choice Image:
+
+
+## Approaches to Parameter Selection:
+- G-Mapper and more
+
+
+## WIP: Using Data Assimilation methods to select parameters:
+
+
