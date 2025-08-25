@@ -120,10 +120,107 @@ It has been shown that the mapper algorithm with certain parameter choices for t
 3. Loss of global information?
 
 
-## Examples Applications in Literature:
-
-
-## Example of Bad Parameter Choice Image:
+## Parameter Choice Matters:
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 873.667 536.365" style="max-width: 100%">
+  <rect x="57.68" y="24.765" width="99.687" height="371.787" style="stroke: rgb(0, 0, 0); fill: rgba(169, 145, 255, 0.42);"></rect>
+  <rect x="137.931" y="47.962" width="84.011" height="338.558" style="stroke: rgb(0, 0, 0); fill: rgba(255, 134, 134, 0.376);"></rect>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" cx="145.141" cy="171.787" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="162.382" cy="196.552" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="142.947" cy="147.022" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="188.715" cy="138.245" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="176.803" cy="165.831" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="141.692" cy="199.686" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="164.891" cy="223.511" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="143.574" cy="294.358" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="164.263" cy="270.533" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="132.916" cy="232.289" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="171.787" cy="312.539" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="188.715" cy="289.342" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="188.088" cy="331.975" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="221.944" cy="300.627" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="221.316" cy="328.057" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="267.085" cy="294.357" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="267.712" cy="327.586" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="309.718" cy="271.787" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="294.044" cy="308.15" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="344.828" cy="307.524" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="347.335" cy="246.708" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="344.2" cy="278.527" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="168.025" cy="111.912" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="211.912" cy="96.865" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="219.435" cy="123.041" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="247.649" cy="89.969" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="253.292" cy="111.912" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="290.282" cy="88.088" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="284.013" cy="107.524" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="324.765" cy="107.524" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="321.63" cy="79.31" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="359.875" cy="125.078" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="352.978" cy="181.505" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="386.207" cy="147.022" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="374.295" cy="194.044" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="379.937" cy="271.787" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="408.15" cy="182.132" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="378.683" cy="233.542" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgb(255, 0, 0);" cx="116.616" cy="280.564" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); fill: rgb(219, 209, 255);" cx="113.48" cy="429.99" rx="8.777" ry="8.777"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); fill: rgb(219, 209, 255); stroke-width: 1px;" cx="113.479" cy="495.193" rx="8.777" ry="8.777"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgb(255, 209, 209);" cx="194.985" cy="404.494" rx="8.777" ry="8.777"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgb(255, 209, 209);" cx="194.357" cy="514.211" rx="8.777" ry="8.777"></ellipse>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 2px;" d="M 121.63 427.691 L 187.461 409.509"></path>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 2px;" d="M 121.63 499.164 L 186.834 512.957"></path>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-dasharray: 5px; stroke-width: 2px;" d="M 203.135 405.12 L 300.314 410.136"></path>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-dasharray: 4px; stroke-width: 2px;" d="M 201.881 514.211 L 304.075 497.283"></path>
+  <rect x="451.358" y="20.168" width="99.687" height="371.787" style="stroke: rgb(0, 0, 0); fill: rgba(169, 145, 255, 0.42); stroke-width: 1px;"></rect>
+  <rect x="531.609" y="43.365" width="84.011" height="338.558" style="stroke: rgb(0, 0, 0); fill: rgba(255, 134, 134, 0.376); stroke-width: 1px;"></rect>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="538.819" cy="167.19" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="556.06" cy="191.955" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="536.625" cy="142.425" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="582.393" cy="133.648" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="570.481" cy="161.234" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="535.37" cy="195.089" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="558.569" cy="218.914" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="537.252" cy="289.761" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="557.941" cy="265.936" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="526.594" cy="227.692" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="565.465" cy="307.942" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="582.393" cy="284.745" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="581.766" cy="327.378" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="615.622" cy="296.03" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="614.994" cy="323.46" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="660.763" cy="289.76" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="661.39" cy="322.989" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="703.396" cy="267.19" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="687.722" cy="303.553" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="738.506" cy="302.927" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="741.013" cy="242.111" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="737.878" cy="273.93" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="561.703" cy="107.315" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="605.59" cy="92.268" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="613.113" cy="118.444" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="641.327" cy="85.372" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="646.97" cy="107.315" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="683.96" cy="83.491" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="677.691" cy="102.927" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="718.443" cy="102.927" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="715.308" cy="74.713" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="753.553" cy="120.481" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="746.656" cy="176.908" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="779.885" cy="142.425" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="767.973" cy="189.447" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="773.615" cy="267.19" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="801.828" cy="177.535" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 1px;" cx="772.361" cy="228.945" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="stroke-width: 1px; stroke: rgba(0, 0, 0, 0.275); fill: rgba(255, 0, 0, 0.21);" cx="510.294" cy="275.967" rx="6.583" ry="6.583"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); fill: rgb(219, 209, 255); stroke-width: 1px;" cx="502.142" cy="456.114" rx="8.777" ry="8.777"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgb(255, 209, 209);" cx="588.663" cy="399.897" rx="8.777" ry="8.777"></ellipse>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgb(255, 209, 209);" cx="588.035" cy="509.614" rx="8.777" ry="8.777"></ellipse>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 2px;" d="M 509.038 451.307 L 581.139 404.912"></path>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 2px;" d="M 507.157 463.219 L 580.512 508.36"></path>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-dasharray: 5px; stroke-width: 2px;" d="M 596.813 400.523 L 693.992 405.539"></path>
+  <path style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-dasharray: 4px; stroke-width: 2px;" d="M 595.559 509.614 L 697.753 492.686"></path>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 1px; fill: rgb(255, 0, 0);" cx="524.765" cy="258.621" rx="6.583" ry="6.583"></ellipse>
+</svg>
 
 
 ## Approaches to Parameter Selection:
@@ -133,3 +230,4 @@ It has been shown that the mapper algorithm with certain parameter choices for t
 ## WIP: Using Data Assimilation methods to select parameters:
 
 
+## Examples Applications in Literature:
