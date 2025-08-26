@@ -221,30 +221,6 @@ $$VR_\epsilon(X) = \\{\sigma \subseteq X : \text{diam}(\sigma) \leq \epsilon\\}$
 - The Rips Complex may include additional simplices:
 
 
-## Curse of Dimensionality
-In high dimensions, geometric intuition breaks down 
-and common computations are exponentially more expensive.
-
-$\frac{V_\text{hypersphere}}{V_\text{hypercube}} = \frac{\pi^{d/2}}{d2^{d-1}\Gamma(d/2)} \to 0 \text{ as } d \to \infty $
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300" style="max-width: 70%; height: auto;" >
-  <defs>
-    <radialGradient gradientUnits="userSpaceOnUse" cx="269.467" cy="330.533" r="69.467" id="gradient-0" gradientTransform="matrix(0.866555, 0, 0, 0.866555, 114.522033, -130.979114)">
-      <stop offset="0" style="stop-color: rgb(50.588% 100% 93.333%)"></stop>
-      <stop offset="1" style="stop-color: rgb(0% 59.236% 53.779%)"></stop>
-    </radialGradient>
-  </defs>
-  <rect x="81.459" y="87.833" width="135.342" height="135.342" style="stroke: rgb(0, 0, 0); fill: rgb(255, 0, 0);"></rect>
-  <ellipse style="stroke: rgb(0, 0, 0); fill: rgba(72, 240, 255, 0.8);" cx="149.13" cy="155.504" rx="67.671" ry="67.671"></ellipse>
-  <path style="stroke: rgb(0, 0, 0); fill: rgba(255, 0, 0, 0.61);" d="M 273.233 127.476 L 372.19 127.231"></path>
-  <ellipse style="stroke: rgb(0, 0, 0); fill: url(#gradient-0);" cx="348.03" cy="155.446" rx="60.197" ry="60.197"></ellipse>
-  <text style="fill: rgb(255, 255, 255); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px; white-space: pre;" x="308.806" y="162.934">52.4%</text>
-  <rect x="272.19" y="127.231" width="100" height="100" style="stroke: rgb(0, 0, 0); fill: rgba(255, 0, 0, 0.61);"></rect>
-  <path style="stroke: rgb(0, 0, 0); fill: rgba(255, 0, 0, 0.61);" d="M 273.233 126.317 L 323.638 80.546 L 422.711 80.546 L 372.19 127.231 L 273.233 126.317 Z"></path>
-  <path style="stroke: rgb(0, 0, 0); fill: rgba(255, 0, 0, 0.61);" d="M 423.291 80.546 L 423.87 180.778 L 372.19 227.231 L 372.19 127.231 L 423.291 80.546 Z"></path>
-  <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: &quot;Arial&quot;, sans-serif; font-size: 28px;" x="110.08" y="163.512">78.5%</text>
-</svg>
-
-
 ## Complexity of $VR_\epsilon$ and $\check{C}_{\epsilon}$
 
 - Cech complex $k$-skeleton in $O(n^{k+1})$ time.
@@ -256,8 +232,7 @@ $\frac{V_\text{hypersphere}}{V_\text{hypercube}} = \frac{\pi^{d/2}}{d2^{d-1}\Gam
 </p>
 
 
-## The (Strict) Witness Complex 
-$$\text{Wit}_\infty(L, W)$$
+## The (Strict) Witness Complex: $\text{Wit}_\infty(L, W)$
 
 **Definition**: Given landmarks and witnesses $$L, W \subset X$$
 
@@ -326,8 +301,7 @@ $\sigma \subseteq L$ is included as a simplex in $\text{Wit}_\infty(L, W)$ if it
 3. Add the $k$-simplex $(l_{i_0} , \dots, l_{i_{k}} )$ if all of its faces exist and it is the ($k+1$)-nearest neighbors to some witness (ties allowed)
 
 
-## The (Lazy) Witness Complex:
-$\text{Wit}(L, W)$
+## The (Lazy) Witness Complex: $\text{Wit}(L, W)$
 
 *Lazy is to Strict as Rips is to Cech*
 
@@ -335,20 +309,20 @@ $\text{Wit}(L, W)$
 
 - Include the simplex $\sigma$ if all of its edges are included.
 
+*Lazy* because it avoids re-checking nearest neighbor condition for higher dimensions
 
-## The (Laziest) Witness Complex:
-$ \text{Wit}_{\epsilon}(L, W; \nu)$ where $\epsilon \in \mathbb{R}^{+}$ and $\nu \in \mathbb{N}$
+
+## The Parameterized Version: $ \text{Wit}_{\epsilon}(L, W; \nu)$ 
+where $\epsilon \in \mathbb{R}^{+}$ and $\nu \in \mathbb{N}$
 
 1. The edge $(l_i, l_j)$ is included if there is a witness $w_i$ whose $(d^{\nu}(w_i) + \epsilon)$-neighborhood contains $(l_i, l_j)$ 
 2. Then fill in all possible higher dimensional simplices.
 
-*Laziest* because it forgoes checking nearest neightbors for each simplex added.
 
+## Parameterized Witness Properties:
+- $\nu = 0$ is closely related to $VR_\epsilon$
 
-## Laziest Properties:
-When $\nu = 0$ is closely related to $VR_\epsilon$
-
-When $\nu = 2$ and $\epsilon = 0$ we have:
+- When $\nu = 2$ and $\epsilon = 0$ we have:
 $$\text{Wit}_{0}(L, W; 2) = \text{Wit}(L, W)$$
 
 <p style="font-size: 0.55em; margin: 0;">

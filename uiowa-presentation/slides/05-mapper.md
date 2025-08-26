@@ -23,14 +23,6 @@
 4. A **clustering method** on $X$
 
 
-## Mapper Construction
-1. Apply the filter $f[X]$
-2. Apply covering scheme on the image.
-3. Pullback each cover element $$V_i = f^{-1}[U_i] \subseteq X$$
-4. Apply the clustering method inside each $V_i$
-5. Build the nerve from the set of all resulting clusters.
-
-
 ## Mapper Diagram
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="100 100 300 300" style="max-width: 60%; height: auto;">
   <rect x="130.889" y="100" width="60.7" height="177.157" style="stroke: rgb(0, 0, 0); fill: rgba(255, 178, 178, 0.525);"></rect>
@@ -97,6 +89,14 @@
 </svg>
 
 
+## Mapper Construction
+1. Apply the filter $f[X]$
+2. Apply covering scheme on the image.
+3. Pullback each cover element $$V_i = f^{-1}[U_i] \subseteq X$$
+4. Apply the clustering method inside each $V_i$
+5. Build the nerve from the set of all resulting clusters.
+
+
 ## Mapper filtration:
 It has been shown that the mapper algorithm with certain parameter choices for the filter function, cover scheme, and clustering method will yield filtrations.
 
@@ -116,11 +116,11 @@ It has been shown that the mapper algorithm with certain parameter choices for t
 ## Cons:
 1. There are many parameter choices to consider:
     - Varying filter function, covering and clustering schemes can dramatically change the result.
-2. There are not guarantees that the result from any given parameter selection is stable.
+2. There is no guarantee that the result from any given parameter selection is stable.
 
 
-## Parameter Choice Matters:
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 873.667 536.365" style="max-width: 100%">
+## Parameter Choice and Noise Matters:
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 873.667 536.365" style="max-width: 90%">
   <rect x="57.68" y="24.765" width="99.687" height="371.787" style="stroke: rgb(0, 0, 0); fill: rgba(169, 145, 255, 0.42);"></rect>
   <rect x="137.931" y="47.962" width="84.011" height="338.558" style="stroke: rgb(0, 0, 0); fill: rgba(255, 134, 134, 0.376);"></rect>
   <ellipse style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0);" cx="145.141" cy="171.787" rx="6.583" ry="6.583"></ellipse>
