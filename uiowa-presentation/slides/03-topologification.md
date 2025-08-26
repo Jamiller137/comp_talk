@@ -87,10 +87,10 @@ $ \sigma = \\{ i_{0}, \dots, i_{k}\\} \in N(\mathcal{U}) \iff \bigcap_{n=0}^{n=k
 </svg>
 
 
-## Nerve Theorem:
+## (Leray) Nerve Theorem:
 
-Given an open cover $\mathcal{U}$ of a manifold $M$ when is the topology of $N(\mathcal{U})$
-equivalent to the topology of $M$?
+Given an open cover $\mathcal{U}$ of a manifold $M$ when is $N(\mathcal{U})$
+homotopy equivalent to $\bigcup_i U_i$?
 
 The two are equivalent if each pairwise intersection $U_i \cap U_j$ is either empty or contractible.
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 10 500 200" style="max-width: 95%; height: auto;">
