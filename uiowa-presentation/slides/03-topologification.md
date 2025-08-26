@@ -92,7 +92,7 @@ $ \sigma = \\{ i_{0}, \dots, i_{k}\\} \in N(\mathcal{U}) \iff \bigcap_{n=0}^{n=k
 Given an open cover $\mathcal{U}$ of a manifold $M$ when is $N(\mathcal{U})$
 homotopy equivalent to $\bigcup_i U_i$?
 
-The two are equivalent if each pairwise intersection $U_i \cap U_j$ is either empty or contractible.
+The two are equivalent if every finite intersection $\bigcap_{i\in J}U_i$ is either empty or contractible.
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 10 500 200" style="max-width: 95%; height: auto;">
   <g style="" transform="matrix(0.5408, 0, 0, 0.5408, 10.78545, -39.983433)">
     <path style="stroke: rgb(0, 0, 0); fill: rgba(255, 119, 119, 0.39);" d="M 143.165 277.127 L 110.899 277.725 C 110.899 277.725 89.484 133.723 244.742 133.126 C 400 132.529 388.743 300 377.39 286.687 C 366.037 273.374 344.527 286.09 344.527 286.09 C 350.984 121.612 141.373 136.114 143.165 277.127 Z"></path>
