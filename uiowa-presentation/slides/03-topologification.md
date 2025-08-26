@@ -89,7 +89,7 @@ $ \sigma = \\{ i_{0}, \dots, i_{k}\\} \in N(\mathcal{U}) \iff \bigcap_{n=0}^{n=k
 
 ## (Leray) Nerve Theorem:
 
-Given an open cover $\mathcal{U}$ of a manifold $M$ when is $N(\mathcal{U})$
+Given an open cover $\mathcal{U}$, when is $N(\mathcal{U})$
 homotopy equivalent to $\bigcup_i U_i$?
 
 The two are equivalent if every finite intersection $\bigcap_{i\in J}U_i$ is either empty or contractible.
