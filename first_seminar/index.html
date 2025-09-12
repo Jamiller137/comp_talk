@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Exam - University of Iowa</title>
+    <link rel="stylesheet" href="node_modules/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="css/uiowa-theme.css">
+    <link rel="stylesheet" href="node_modules/reveal.js/plugin/highlight/monokai.css">
+    <link rel="icon" href="data:,">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net;">
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <!-- Title Slide -->
+            <section data-markdown="slides/01-title.md" 
+                     data-separator="^\n\n\n" 
+                     data-separator-vertical="^\n\n"
+                     data-background-color="#FFCD00">
+            </section>
+
+            <!-- Outline -->
+            <section data-markdown="slides/02-outline.md"></section>
+
+            <!-- Background Section -->
+            <section data-markdown="slides/03-background.md" 
+                     data-separator="^\n\n\n" 
+                     data-separator-vertical="^\n\n">
+            </section>
+            <!-- Background Section -->
+            <section data-markdown="slides/04-theory.md" 
+                     data-separator="^\n\n\n" 
+                     data-separator-vertical="^\n\n">
+            </section>
+
+            <!-- Persistence and Stability -->
+            <section data-markdown="slides/05-computation.md"
+                     data-separator="^\n\n\n" 
+                     data-separator-vertical="^\n\n">
+            </section>
+
+            <!-- Methodology -->
+            <section data-markdown="slides/06-examples.md" 
+                     data-separator="^\n\n\n" 
+                     data-separator-vertical="^\n\n">
+            </section>
+
+            <!-- Results -->
+            <section data-markdown="slides/07-conclusions.md"
+                     data-separator="^\n\n\n" 
+                     data-separator-vertical="^\n\n">
+            </section>
+        </div>
+    </div>
+
+    <script src="node_modules/reveal.js/dist/reveal.js"></script>
+    <script src="node_modules/reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/languages/bash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/languages/shell.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/languages/python.min.js"></script>
+    <script src="node_modules/reveal.js/plugin/markdown/markdown.js"></script>
+    <script src="node_modules/reveal.js/plugin/notes/notes.js"></script>
+    <script src="node_modules/reveal.js/plugin/math/math.js"></script>
+    <script src="js/presentation.js"></script>
+    <script>
+    // Configure MathJax 3 before Reveal.js loads
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        },
+        startup: {
+            ready: () => {
+                MathJax.startup.defaultReady();
+                MathJax.startup.promise.then(() => {
+                    console.log('MathJax 3 ready');
+                });
+            }
+        }
+    };
+
+    Reveal.initialize({
+      hash: true,
+      plugins: [ 
+          RevealMarkdown, 
+          RevealHighlight, 
+          RevealNotes, 
+          RevealMath.MathJax3 
+      ],
+      markdown: {
+        smartypants: false,
+        breaks: false,
+        gfm: true,
+        pedantic: false,
+        sanitize: false
+      },
+      highligh: {
+        highlighOnLoad: true
+      },
+      math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+          // Remove the config line - it's MathJax 2 syntax
+      }
+  }).then(() => {
+    // Process highlighting after markdown is fully loaded
+    setTimeout(() => {
+        document.querySelectorAll('pre code').forEach((block) => {
+            // Remove any existing highlighting
+            block.innerHTML = block.textContent;
+            // Re-apply highlighting
+            if (typeof hljs !== 'undefined') {
+                hljs.highlightElement(block);
+            }
+        });
+    }, 100);
+});;
+  </script>
+
+
+    
+</body>
+</html>
+

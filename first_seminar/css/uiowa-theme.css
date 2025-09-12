@@ -1,0 +1,253 @@
+/* University of Iowa Theme */
+:root {
+    --uiowa-gold: #FFCD00;
+    --uiowa-black: #000000;
+    --uiowa-gray: #666666;
+    --uiowa-light-gray: #F5F5F5;
+}
+
+.reveal {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 38px;
+    font-weight: normal;
+    text-align: left;
+    color: #222;
+    line-height: 1.5;
+}
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
+    margin: 0 0 -5px 0;
+    color: var(--uiowa-black);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: normal;
+    text-shadow: none;
+    word-wrap: break-word;
+}
+
+.reveal h1 {
+    font-size: 2.5em;
+    color: var(--uiowa-black);
+}
+
+.reveal h2 {
+    font-size: 1.6em;
+    color: var(--uiowa-black);
+    border-bottom: 3px solid var(--uiowa-gold);
+    padding-bottom: 10px;
+}
+
+.reveal h3 {
+    font-size: 1.3em;
+    color: var(--uiowa-black);
+}
+
+/* Title slide styling */
+.title-slide {
+    text-align: center;
+    padding: 1em;
+}
+
+.title-slide h1 {
+    color: var(--uiowa-black);
+    margin-bottom: 0.5em;
+}
+
+.title-slide h3 {
+    color: var(--uiowa-black);
+    margin-bottom: 1em;
+}
+
+.uiowa-logo {
+    margin-top: 2em;
+}
+
+/* Research questions styling */
+.research-questions {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.question {
+    background: var(--uiowa-light-gray);
+    padding: 1em;
+    border-left: 5px solid var(--uiowa-gold);
+    border-radius: 5px;
+}
+
+.question h4 {
+    color: var(--uiowa-black);
+    margin-bottom: 0.5em;
+}
+
+/* Timeline styling */
+.timeline {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-top: 2em;
+}
+
+.timeline-item {
+    flex: 1;
+    text-align: center;
+    padding: 0 1em;
+}
+
+.timeline-item h4 {
+    color: var(--uiowa-gold);
+    background: var(--uiowa-black);
+    padding: 0.5em;
+    border-radius: 5px;
+    margin-bottom: 1em;
+}
+
+/* Lists */
+.reveal ul, .reveal ol {
+    display: block;
+    margin-left: 1em;
+    text-align: left;
+}
+
+.reveal ul li, .reveal ol li {
+    margin-bottom: 0.5em;
+    text-align: left;
+}
+
+/* Links */
+.reveal a {
+    color: var(--uiowa-gold);
+    text-decoration: none;
+}
+
+.reveal a:hover {
+    color: var(--uiowa-black);
+    text-shadow: none;
+    border: none;
+}
+
+/* Progress bar */
+.reveal .progress {
+    color: var(--uiowa-gold);
+}
+
+/* Controls */
+.reveal .controls {
+    color: var(--uiowa-gold);
+}
+
+/* Slide numbers */
+.reveal .slide-number {
+    color: var(--uiowa-black);
+    background-color: var(--uiowa-gold);
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+/* Code blocks */
+.reveal pre {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.reveal pre code {
+    display: block;
+    padding: 0.5em;
+    background: #272822;
+    color: #f8f8f2;
+    max-height: 400px;
+    overflow: auto;
+}
+
+.reveal code {
+    font-family: "Courier New", Courier, monospace;
+    text-align: left;
+}
+
+/* Ensure hljs classes work */
+hljs {
+  background: #272822;
+  color: #ddd;
+}
+
+.hljs-tag,
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-strong,
+.hljs-number,
+.hljs-name {
+  color: #f92672;
+}
+
+.hljs-code {
+  color: #66d9ef;
+}
+
+.hljs-attribute,
+.hljs-attr,
+.hljs-symbol,
+.hljs-regexp,
+.hljs-link {
+  color: #bf79db;
+}
+
+.hljs-string,
+.hljs-bullet,
+.hljs-subst,
+.hljs-title,
+.hljs-section,
+.hljs-emphasis,
+.hljs-type,
+.hljs-built_in,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable {
+  color: #a6e22e;
+}
+
+.hljs-title.class_,
+.hljs-class .hljs-title {
+  color: white;
+}
+
+.hljs-comment,
+.hljs-quote,
+.hljs-deletion,
+.hljs-meta {
+  color: #75715e;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-doctag,
+.hljs-title,
+.hljs-section,
+.hljs-type,
+.hljs-selector-id {
+  font-weight: bold;
+}
+
+/* Tables */
+.reveal table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.reveal table th {
+    background-color: var(--uiowa-gold);
+    color: var(--uiowa-black);
+    font-weight: bold;
+}
+
+.reveal table td, .reveal table th {
+    text-align: left;
+    padding: 0.2em 0.5em 0.2em 0.5em;
+    border-bottom: 1px solid;
+}
+
