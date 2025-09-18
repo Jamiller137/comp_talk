@@ -17,15 +17,17 @@ University of Iowa
 ---
 
 ## Outline:
+
 - What is Clustering?
+- Types of Clusters
 - Feature Selection
 - Types of Clustering
-    - Partitioning Methods
-    - Hierarchical Methods
-    - Density-based methods
-    - Probabilistic
-    - Grid-based
-    - Dimension Reduction
+    - Partitioning Methods (K-Means)
+    - Hierarchical Methods (Agglomerative / Divisive)
+    - Density-based Methods (DBSCAN)
+    - Probabilistic EM Methods (GMM)
+    - Dimension Reduction (NMF)
+    - Co-Clustering
 - Cluster Evaluation
 
 ---
@@ -35,6 +37,26 @@ University of Iowa
 
 - Insert Image Here:
 
+--- 
+
+## What is 'similar'?
+
+Given data points $X = \{x_1 , \dots, x_n \} \subset \mathbb{R}^d$ find a partition $\{C_1 , \dots, C_K \}$ that optimizes
+
+$$
+\min_{C_k} \sum_{k=1}^{K} \sum_{x_i \in C_k} \text{dist}(x_i, \mu_k)^2
+$$
+Where $\mu_k$ is a representative for cluster $C_k$
+
+---
+
+## Types of Clusters:
+The type of distance criterion used will determine the types of clusters in the output:
+- Convex / Spherical
+- Manifold / Non-Convex
+- Varying density or uniform density
+- Overlapping vs. Separated clusters
+
 ---
 
 ## Feature Selection
@@ -43,9 +65,11 @@ Not all features of our data are meaningful for clustering
 - Closely related to dimension reduction
     - picks subsets of dimensions instead of linear combinations.
 
-Basically a balancing act of interpretability vs less dimensions needed.
+- balancing act of interpretability vs less dimensions needed.
 
 - Can be worked into clustering algorithms since some clusters may depend on certain features.
+
+Clustering methods which incorporate feature selection are Co-Clusterers
 
 ---
 
@@ -53,17 +77,17 @@ Basically a balancing act of interpretability vs less dimensions needed.
 
 - Core idea: model data from a generative process which exposes clusters
 - Maximum Likelihood Fit
-
----
-
-## Mixture Models:
-
 - GMM with Anderson-Darling test.
-- EM approach to generative models
+- EM (expectation maximization) approach to generative models
     - GMM with Numerical data
     - Bernoulli model for categorical
     - Hidden Markov Model (HMM) for sequence data
 - Soft K-Means example
+
+---
+
+## Example: Gaussian Mixture Models:
+Explain EM update process
 
 ---
 
@@ -73,6 +97,7 @@ Basically a balancing act of interpretability vs less dimensions needed.
 
 ---
 
+
 ## Distance-based cont...:
 Can be broadly categorized into two types:
 - **Flat:** Data divided into clusters in one shot
@@ -80,6 +105,18 @@ Can be broadly categorized into two types:
 - **Hierarchical:** Clusters expressed hierarchically typically via a dendrogram at varying levels of granularity
     - Agglomerative: Bottom-Up
     - Divisive: Top-Down
+
+---
+
+## Example: K-Means
+
+Show how K-Means / Medians works
+
+---
+
+## Example: Agglomerative / Single-linkage
+
+Show how it works and dendrogram to prep for George's talk
 
 ---
 
@@ -129,5 +166,3 @@ Should expand on this for better interpretation
 ## Silhouette Score:
 - An internal evaluation metric commonly used
     - referenced in a couple mapper papers.
-
-
