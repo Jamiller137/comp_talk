@@ -37,7 +37,7 @@ where $r$ is the radius in ambient space.
 ## Construct Local Metric
 
 - For each datapoint $x_i$, define a local extended-pseudo-metric:
-    - Use the distance to $k$-th nearest neighbor to normalize volume
+    - Use the distance to $k$-th nearest neighbor to normalize the unit ball about the datapoint
     - Ensures uniform distribution assumption locally
 
 
@@ -69,7 +69,7 @@ Elements $X([n])$ are called $n$-simplices of $X$.
 2. $d(x,y) = d(y,x)$
 3. $d(x,z) \leq d(x,y) + d(y,z)$ or $d(x,z) = \infty$
 
-**$\textbf{FinEPMet}$:** Finite extended-pseudo-metric spaces with non-expansive maps
+**$\textbf{FinEPMet}$:** Finite extended-pseudo-metric spaces with non-expansive maps (contractions).
 
 
 ## Fuzzy Sets
