@@ -33,136 +33,318 @@ University of Iowa
 ---
 
 ## What is Clustering?
-```Given a set of data points, partition them into a set of groups which are as similar as possible.```
 
-- Insert Image Here:
+Given a set of data points, partition them into groups where points within each group are more similar to each other than to points in other groups.
 
---- 
+---
 
-## What is 'similar'?
+## Visual Example of Clustering
 
-Given data points $X = \{x_1 , \dots, x_n \} \subset \mathbb{R}^d$ find a partition $\{C_1 , \dots, C_K \}$ that optimizes
+---
 
-$$
-\min_{C_k} \sum_{k=1}^{K} \sum_{x_i \in C_k} \text{dist}(x_i, \mu_k)^2
-$$
+
+
+**Unsupervised**: No ground truth labels to check clustering against.
+
+---
+
+## What is 'Similar'?
+
+Given data points $X = \{x_1, \ldots, x_n\} \subset \mathbb{R}^d$, find a partition $\{C_1, \ldots, C_K\}$ that optimizes:
+
+$$\min_{C_k} \sum_{k=1}^{K} \sum_{x_i \in C_k} \text{dist}(x_i, \mu_k)^2$$
+
 Where $\mu_k$ is a representative for cluster $C_k$
 
 ---
 
-## Types of Clusters:
-The type of distance criterion used will determine the types of clusters in the output:
-- Convex / Spherical
-- Manifold / Non-Convex
-- Varying density or uniform density
-- Overlapping vs. Separated clusters
+
+**Common distance metrics**:
+- Euclidean: $\|x_i - x_j\|_2$
+- Manhattan: $\|x_i - x_j\|_1$
+- Cosine: $1 - \frac{x_i \cdot x_j}{\|x_i\|\|x_j\|}$
+
+---
+
+## Types of Clusters
+
+The choice of distance criterion and algorithm determines cluster shapes:
+
+---
+
+## **Spherical/Convex**
+Circular or elliptical boundaries
+- Example: K-means produces spherical clusters
+
+---
+
+## **Manifold/Non-Convex** 
+Complex, curved boundaries
+- Example: Two interlocking crescents
+
+---
+
+## **Varying vs. Uniform Density**
+- Uniform: All clusters have similar point density
+- Varying: Some clusters are dense, others sparse
+
+---
+
+## Types of Clusters (cont.)
+
+**Overlapping vs. Separated**:
+- **Hard clustering**: Each point belongs to exactly one cluster
+- **Soft clustering**: Points have probabilities of belonging to multiple clusters
+
+---
+
+**Well-separated vs. Connected**:
+- Clear gaps between clusters vs. gradual transitions
 
 ---
 
 ## Feature Selection
-Not all features of our data are meaningful for clustering
 
-- Closely related to dimension reduction
-    - picks subsets of dimensions instead of linear combinations.
+Not all features are meaningful for clustering
 
-- balancing act of interpretability vs less dimensions needed.
-
-- Can be worked into clustering algorithms since some clusters may depend on certain features.
-
-Clustering methods which incorporate feature selection are Co-Clusterers
+**Example**: Clustering customers
+- Relevant: Age, income, purchase history
+- Irrelevant: Customer ID, timestamp
 
 ---
 
-## Probabilistic Models
+## Approaches to feature selection
 
-- Core idea: model data from a generative process which exposes clusters
-- Maximum Likelihood Fit
-- GMM with Anderson-Darling test.
-- EM (expectation maximization) approach to generative models
-    - GMM with Numerical data
-    - Bernoulli model for categorical
-    - Hidden Markov Model (HMM) for sequence data
-- Soft K-Means example
+1. **Filter methods**: Select features before clustering
+2. **Wrapper methods**: Select features during clustering  
+3. **Embedded methods**: Feature selection built into algorithm
 
 ---
 
-## Example: Gaussian Mixture Models:
-Explain EM update process
+## Feature Selection (cont.)
+
+**Relationship to Dimension Reduction**:
+- Feature selection: Choose subset of original dimensions
+- Dimension reduction: Create new dimensions as combinations
+
+
+**Co-clustering**: Simultaneously cluster rows and columns of data matrix
 
 ---
 
-## Distance-based Algorithms:
-- *can* be related to generative algorithms since the probability distributions typically use a distance metric.
-    - GMM roughly K-MEANS: many distance-based algorithms can be viewed as reductions/simplifications of generative algorithms.
+## Types of (hard) Clustering Algorithms
+
+**Four main categories**:
+
+1. **Partitioning**: Divide data into K clusters (K-means)
+2. **Hierarchical**: Build tree of clusters (Agglomerative)  
+3. **Density-based**: Find dense regions (DBSCAN)
+4. **Model-based**: Fit probabilistic models (GMM)
+
+Each has different assumptions about cluster structure!
+
+---
+
+## image
+describes cluster assumptions
+
+---
+
+## Partitioning (distance) Methods: K-Means
+
+**Algorithm**:
+1. Choose number of clusters K
+2. Initialize K cluster centroids randomly
+3. Assign each point to nearest centroid
+4. Update centroids to mean of assigned points
+5. Repeat steps 3-4 until convergence or cutoff
+
+**Objective**: Minimize within-cluster sum of squares (WCSS)
+
+$$\text{WCSS} = \sum_{k=1}^{K} \sum_{x_i \in C_k} \|x_i - \mu_k\|^2$$
+
+---
+
+## Hierarchical Clustering
+
+**Two types**:
+1. **Agglomerative** (bottom-up): Start with individual points, merge clusters
+2. **Divisive** (top-down): Start with all points, split clusters
+
+---
+
+**Output**: Dendrogram showing cluster hierarchy at all levels
+
+**Key decision**: How to measure distance between clusters?
+
+Cutting height?
+
+---
+
+## Linkage Criteria
+
+**Single linkage**: Distance between closest points
+$$d(C_i, C_j) = \min_{x \in C_i, y \in C_j} d(x,y)$$
+
+**Complete linkage**: Distance between farthest points  
+$$d(C_i, C_j) = \max_{x \in C_i, y \in C_j} d(x,y)$$
+
+**Average linkage**: Average distance between all pairs
+
+---
+
+## Agglomerative Clustering Example
+
+---
+
+## Reading Dendrograms
+
+**Horizontal lines**: Represent clusters at that level
+**Vertical lines**: Show merge operations  
+**Height**: Distance at which clusters merge
+
+Image / Example
+
+---
+
+## Density-Based Clustering: DBSCAN
+
+**Core idea**: Clusters are dense regions separated by sparse regions
+
+**Key parameters**:
+- $\epsilon$: Neighborhood radius
+- $\text{minPts}$: Minimum points to form cluster
+
+---
+
+**Point types**:
+- **Core point**: Has $\geq$ minPts neighbors within $\epsilon$
+- **Border point**: In neighborhood of core point
+- **Noise point**: Neither core nor border
+
+---
+
+## DBSCAN Algorithm
+
+1. For each point $p$:
+   - Find all points within distance $\epsilon$
+   - If $\geq$ minPts neighbors, mark as core point
+
+2. For each core point:
+   - Create cluster with all density-reachable points
+
+3. Assign border points to nearby clusters
+
+4. Mark remaining points as noise
+
+---
+
+## Probabilistic Methods: Overview
+
+**Core idea**: Model data as generated from mixture of probability distributions
+
+1. Assume each cluster follows a probability distribution
+2. Use Maximum Likelihood Estimation (MLE)
+3. Apply Expectation-Maximization (EM) algorithm
+
+---
+
+## Gaussian Mixture Models (GMM)
+
+**Assumption**: Data generated from K Gaussian distributions
+
+$$p(x) = \sum_{k=1}^{K} \pi_k \mathcal{N}(x; \mu_k, \Sigma_k)$$
+
+---
+
+## EM Algorithm for GMM
+
+**E-step**: Compute responsibility of component k for point i
+$$r_{ik} = \frac{\pi_k \mathcal{N}(x_i; \mu_k, \Sigma_k)}{\sum_{j=1}^{K} \pi_j \mathcal{N}(x_i; \mu_j, \Sigma_j)}$$
+
+**M-step**: Update parameters
+$$\mu_k = \frac{\sum_{i=1}^{n} r_{ik} x_i}{\sum_{i=1}^{n} r_{ik}}, \quad \pi_k = \frac{1}{n}\sum_{i=1}^{n} r_{ik}$$
+
+**Iterate**: Until log-likelihood converges
+
+---
+
+## Dimension Reduction Methods
+
+1. **Reduce dimensions first, then cluster**
+2. **Simultaneous dimension reduction and clustering**
+
+**Example methods**:
+- Principal Component Analysis (PCA) + K-means
+- Non-negative Matrix Factorization (NMF)
+- Spectral clustering
+
+---
+
+## Non-negative Matrix Factorization (NMF)
+
+---
+
+## NMF Algorithm
+
+**Objective**: Minimize reconstruction error
+$$\min_{W,H \geq 0} \|X - WH\|_F^2$$
+
+
+**Clustering**: Assign point i to cluster $\arg\max_k W_{ik}$
+
+---
+
+## Spectral Clustering
+
+**Core idea**: Transform clustering into graph cut problem
+
+---
+
+## Spectral Clustering Properties
+
+
+---
+
+## High-Dimensions
+
+---
+
+## Co-Clustering
+
+**Motivation**: Cluster both rows (samples) and columns (features) simultaneously
+
+**Algorithms**:
+- Spectral co-clustering
+- Block diagonal co-clustering  
+- Information-theoretic co-clustering
+
+---
+
+## Cluster Evaluation
+
+1. **External validation**: Compare against ground truth labels
+   - Adjusted Rand Index (ARI)
+   - Normalized Mutual Information (NMI)
+   - F-measure
+
+2. **Internal validation**: Evaluate using data structure only
+   - Silhouette score
+   - Calinski-Harabasz index
+   - Davies-Bouldin index
+
+---
+
+## Silhouette Score
+
+**For each point i**: Compute silhouette coefficient
+$$s_i = \frac{b_i - a_i}{\max(a_i, b_i)}$$
+
+- $a_i$: Average distance to points in same cluster
+- $b_i$: Average distance to points in nearest different cluster
+
+$$\text{Silhouette} = \frac{1}{n}\sum_{i=1}^{n} s_i$$
 
 ---
 
 
-## Distance-based cont...:
-Can be broadly categorized into two types:
-- **Flat:** Data divided into clusters in one shot
-    - K-MEANS, K-MEDIANS, and K-MEDIODS
-- **Hierarchical:** Clusters expressed hierarchically typically via a dendrogram at varying levels of granularity
-    - Agglomerative: Bottom-Up
-    - Divisive: Top-Down
-
----
-
-## Example: K-Means
-
-Show how K-Means / Medians works
-
----
-
-## Example: Agglomerative / Single-linkage
-
-Show how it works and dendrogram to prep for George's talk
-
----
-
-## Density/Grid-based Methods:
-- Explore the *space* of the data at varying granularity.
-- DBSCAN
-- Only natural on continuous continuous space
-- Struggle with high dimension density calculations
-
---- 
-
-## Dimension Reduction:
-Can be viewed as a form of vertical clustering (clustering columns in our data matrix)
-- Attempts to do clustering and dimension reduction in one step exist (co-clustering):
-    - matrix factorization, spectral clustering, etc.
-
----
-
-## Non-negative Matrix Factorization
-
-Description and interpretation
-
---- 
-
-## Spectral Methods:
-- Graph-based
-- Converts data into a graph with edge weights
-    - clustering becomes finding optimal cuts 
-
-Should expand on this for better interpretation
-
----
-
-## High-dimensional stuff
-
-- leads to problems in distance-based algorithms 
-
---- 
-
-## Evaluation Metrics
-
-- External
-- Internal
-
----
-
-## Silhouette Score:
-- An internal evaluation metric commonly used
-    - referenced in a couple mapper papers.
