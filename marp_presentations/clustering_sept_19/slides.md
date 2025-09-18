@@ -34,35 +34,54 @@ University of Iowa
 
 ## What is Clustering?
 
-Given a set of data points, partition them into groups where points within each group are more similar to each other than to points in other groups.
-
----
-
-## Visual Example of Clustering
-
----
-
+Partitioning a dataset where points within each group are more *similar* to each other than to points in other groups.
 
 
 **Unsupervised**: No ground truth labels to check clustering against.
 
 ---
 
-## What is 'Similar'?
+## Visual Example of Clustering
 
-Given data points $X = \{x_1, \ldots, x_n\} \subset \mathbb{R}^d$, find a partition $\{C_1, \ldots, C_K\}$ that optimizes:
-
-$$\min_{C_k} \sum_{k=1}^{K} \sum_{x_i \in C_k} \text{dist}(x_i, \mu_k)^2$$
-
-Where $\mu_k$ is a representative for cluster $C_k$
+**Intuition**: Clusters are dense subsets separated by sparse subsets.
 
 ---
 
+## What is 'Similar'?
 
-**Common distance metrics**:
+- Clustering is an optimization problem on partitions of data.
+
+Given data points $X = \{x_1, \ldots, x_n\}$, find a partition $\{C_1, \ldots, C_K\}$ that (min)maximizes some (dis)similarity score (between) within clusters.
+
+$$ \min_{\mathcal{C} \in \mathcal{Part}(X)} \sum_{C_i , C_j \in \mathcal{C}} \text{Sim}(C_i, C_j)$$
+
+
+---
+
+## Distance Example
+
+$$\min_{\mathcal{C}} \sum_{k=1}^{|\mathcal{C}|} \sum_{x_i \in C_k} \text{dist}(x_i, \mu_k)$$
+
+Where $\mu_k$ is a representative for cluster $C_k$
+
 - Euclidean: $\|x_i - x_j\|_2$
 - Manhattan: $\|x_i - x_j\|_1$
 - Cosine: $1 - \frac{x_i \cdot x_j}{\|x_i\|\|x_j\|}$
+
+---
+
+## What would you want?
+
+- Scale-invariance
+- Richness
+- Consistent
+
+
+---
+
+## Impossibility Theorem
+
+There is no clustering scheme that satisfies all three.
 
 ---
 
@@ -100,35 +119,6 @@ Complex, curved boundaries
 
 **Well-separated vs. Connected**:
 - Clear gaps between clusters vs. gradual transitions
-
----
-
-## Feature Selection
-
-Not all features are meaningful for clustering
-
-**Example**: Clustering customers
-- Relevant: Age, income, purchase history
-- Irrelevant: Customer ID, timestamp
-
----
-
-## Approaches to feature selection
-
-1. **Filter methods**: Select features before clustering
-2. **Wrapper methods**: Select features during clustering  
-3. **Embedded methods**: Feature selection built into algorithm
-
----
-
-## Feature Selection (cont.)
-
-**Relationship to Dimension Reduction**:
-- Feature selection: Choose subset of original dimensions
-- Dimension reduction: Create new dimensions as combinations
-
-
-**Co-clustering**: Simultaneously cluster rows and columns of data matrix
 
 ---
 
