@@ -17,7 +17,6 @@
             buildInputs = with pkgs; [
               marp-cli
               nodejs
-              chromium
             ];
 
             shellHook = ''
