@@ -20,8 +20,9 @@ University of Iowa
 - What is Clustering?
 - Feature Selection
 - Types of Clustering
-    - Density based
-    - Distance based
+    - Partitioning Methods
+    - Hierarchical Methods
+    - Density-based methods
     - Probabilistic
     - Grid-based
     - Dimension Reduction
