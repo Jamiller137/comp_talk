@@ -3,7 +3,6 @@ marp: true
 theme: uiowa
 math: mathjax
 paginate: true
-footer: 'TDA/V Seminar: September 19th, 2025' 
 ---
 
 <!-- _class: title-slide -->
@@ -98,17 +97,14 @@ Circular or elliptical boundaries
 - **Assumption**: $d(x, \mu) \leq r$ for cluster center $\mu$ and radius $r$
 - Example: K-means produces spherical clusters with $L_2$ norm
 
+---
 
-Image
+![center width:600](./presentation_images/spherical_clusters.png)
 
 ---
 
 ## Manifold/Non-Convex 
-Complex, curved boundaries
-- **Mathematical**: Clusters lie on low-dimensional manifolds $\mathcal{M} \subset \mathbb{R}^d$
-- Example: Two interlocking crescents, Swiss roll
-
-Image
+![center width:1100](./presentation_images/manifold_clusters.png)
 
 ---
 
@@ -116,7 +112,7 @@ Image
 - **Uniform**: $\rho(C_i) \approx \rho(C_j)$ for all clusters $i, j$
 - **Varying**: $\frac{|C_i|/\text{vol}(C_i)}{|C_j|/\text{vol}(C_j)} \gg 1$ for some clusters
 
-Image
+![center width:800px](./presentation_images/density_clusters.png)
 
 ---
 
@@ -124,7 +120,7 @@ Image
 - **Separated**: $\min_{x \in C_i, y \in C_j} d(x,y) > \max_{x,y \in C_k} d(x,y)$ for $k \in \{i,j\}$
 - **Connected**: Clusters connected by low-density regions
 
-Image
+![center width:700px](./presentation_images/separation_clusters.png)
 
 ---
 
@@ -141,8 +137,7 @@ Each has different assumptions about cluster structure!
 
 ---
 
-## image
-Describe these cluster assumptions
+![center width:750px](./presentation_images/algorithm_comparison.png)
 
 ---
 
@@ -157,9 +152,7 @@ Describe these cluster assumptions
 
 ---
 
-## K-Means / Medoids
-
-Image for this
+![center width:750px](./presentation_images/kmeans_process.png)
 
 ---
 
@@ -173,13 +166,10 @@ Image for this
 
 ---
 
-## Reading Dendrograms
+## Dendrogram
 
-Image
 
-**Horizontal lines**: Represent clusters at that level
-**Vertical lines**: Show merge operations with cost $d(C_i, C_j)$
-**Height**: Distance at which clusters merge
+![center width:1150px](./presentation_images/dendrogram.png)
 
 ---
 
@@ -222,7 +212,7 @@ $$d(C_i, C_j) = \max_{x \in C_i, y \in C_j} d(x,y)$$
 
 **Note**: Creates elongated clusters due to **chaining effect** - clusters connected by single close points will merge.
 
-Image Here
+![center width:400px](./presentation_images/chaining_effect.png)
 
 ---
 
@@ -262,7 +252,7 @@ Clusters are dense regions separated by sparse regions
 
 ---
 
-## Image of DBSCAN clusters:
+![center width:950px](./presentation_images/dbscan_clustering.png)
 
 ---
 
@@ -325,7 +315,7 @@ $\Sigma_k = \frac{\sum_{i=1}^n r_{ik}(x_i - \mu_k)(x_i - \mu_k)^T}{\sum_{i=1}^n 
 
 ---
 
-## Image of GMM cluster:
+![center width:900px](./presentation_images/gmm_clustering.png)
 
 ---
 
@@ -351,7 +341,8 @@ where $\text{cut}(A,B) = \sum_{i \in A, j \in B} A_{ij}$ and $\text{vol}(A) = \s
 
 ---
 
-## Image for Spectral intuition:
+
+![center width:1050px](./presentation_images/spectral_clustering_steps.png)
 
 ---
 
@@ -409,13 +400,11 @@ $$\text{Silhouette} = \frac{1}{n}\sum_{i=1}^{n} s_i \in [-1,1]$$
 
 ---
 
-## Image for Silhouette Score
+![center width:1050px](./presentation_images/silhouette_analysis.png)
 
 ---
 
 # FIN
 
 Notes:
-
-- Update with pictures
 - Update Spectral, Probabilistic, Co-Clustering and Curse of Dimensionality
