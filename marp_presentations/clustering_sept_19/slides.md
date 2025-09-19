@@ -43,9 +43,11 @@ Partitioning a dataset where points within each group are more *similar* to each
 
 ## What is 'Similar'?
 
-- Clustering is an optimization problem on partitions of data.
+- **Partitional Style**: Views clustering as an optimization problem on partitions.
 
 Given data points $X = \{x_1, \ldots, x_n\}$, find a partition $\{C_1, \ldots, C_K\}$ that (min)maximizes some (dis)similarity score (between) within clusters.
+
+- **Hierarchical Style**: Creates a binary tree where splits at different levels obtains different clustering solutions without rerunning clustering.
 
 ---
 
@@ -58,7 +60,7 @@ $$\max_{\mathcal{C} \in \mathcal{Part}(X)} \sum_{k=1}^{|\mathcal{C}|} \sum_{x_i,
 
 ## Distance Example
 
-$$\min_{\mathcal{C}} \sum_{k=1}^{|\mathcal{C}|} \sum_{x_i \in C_k} \text{dist}(x_i, \mu_k)$$
+$$\min_{\mathcal{C}} \sum_{k=1}^{|\mathcal{C}|} \sum_{x_i \in C_k} d(x_i, \mu_k)$$
 
 Where $\mu_k$ is a representative for cluster $C_k$
 
@@ -144,11 +146,10 @@ Each has different assumptions about cluster structure!
 ## Partitioning (distance) Methods: K-Means
 
 **Algorithm**:
-1. Choose number of clusters K
-2. Initialize K cluster centroids $\mu_1^{(0)}, \ldots, \mu_K^{(0)}$ randomly
-3. Assign: $C_k^{(t)} = \{x_i : k = \arg\min_j \|x_i - \mu_j^{(t-1)}\|^2\}$
-4. Update: $\mu_k^{(t)} = \frac{1}{|C_k^{(t)}|} \sum_{x_i \in C_k^{(t)}} x_i$
-5. Repeat steps 3-4 until $\|\mu_k^{(t)} - \mu_k^{(t-1)}\| < \epsilon$
+1. Initialize K cluster centroids $\mu_1^{(0)}, \ldots, \mu_K^{(0)}$ randomly
+2. Assign: $C_k^{(t)} = \{x_i : k = \arg\min_j \|x_i - \mu_j^{(t-1)}\|^2\}$
+3. Update: $\mu_k^{(t)} = \frac{1}{|C_k^{(t)}|} \sum_{x_i \in C_k^{(t)}} x_i$
+4. Repeat steps 2-3 until $\|\mu_k^{(t)} - \mu_k^{(t-1)}\| < \epsilon$, or $t$ reaches some threshold.
 
 ---
 
@@ -156,13 +157,36 @@ Each has different assumptions about cluster structure!
 
 ---
 
-## Hierarchical Clustering
+## K-Means:
+- K-Means is effectively minimizing the Sum-Square Error (SSE)
+- SSE monotonically decreases with each iteration
+    - eventually converges to a local minimum.
 
-**Two types**:
+### Factors:
+- Choosing the initial centroids
+- Estimating the number of clusters
+
+---
+## K-Modes Clustering:
+A similar approach to K-Means but for categorical data.
+
+1. Select $K$ initial modes.
+2. Form $K$ clusters by assigning data-points to the cluster with the nearest mode using matching metric $(L_0)$.
+3. Recompute modes for each clusters.
+4. repeat 2-3 until convergence criterion is met.
+
+- Note: still only local optimal solutions.
+
+---
+
+## Hierarchical Clustering
+Attempts to handle issues with partitional clustering.
 1. **Agglomerative** (bottom-up): Start with $n$ clusters $\{x_i\}$, merge until $k$ clusters
 2. **Divisive** (top-down): Start with 1 cluster $X$, split until $k$ clusters
 
 **Output**: Dendrogram showing cluster hierarchy at all levels
+
+- Allows for cutting the hierachy at any given level instead of prespecifying the number of clusters.
 
 ---
 
@@ -173,15 +197,24 @@ Each has different assumptions about cluster structure!
 
 ---
 
-## Linkage Criteria
+## Agglomerative Clustering Steps:
+1. Initialize each point as a cluster.
+2. A dissimilarity matrix is constructed between all clusters.
+3. Closest sets of clusters are merged at each level and the dissimilarity matrix is updated.
+4. Repeat until converge to a final maximal cluster.
 
-**Single linkage**: Distance between closest points
-$$d(C_i, C_j) = \min_{x \in C_i, y \in C_j} d(x,y)$$
+---
 
-**Complete linkage**: Distance between farthest points  
-$$d(C_i, C_j) = \max_{x \in C_i, y \in C_j} d(x,y)$$
+## Some Linkage Criteria
 
-**Average linkage**: Average distance between all pairs
+**Single linkage**: Distance between closest points (NN)
+
+**Complete linkage**: Distance between farthest points (Diameter)
+
+**Average linkage**: Average distance between all pairs (average link)
+
+**Ward's Linkage**: Uses K-Means squared error criterion weighted by cardinalities
+- Minimal variance when merging clusters.
 
 ---
 
@@ -210,21 +243,24 @@ $$d(C_i, C_j) = \max_{x \in C_i, y \in C_j} d(x,y)$$
 
 ## Single-Linkage
 
-**Note**: Creates elongated clusters due to **chaining effect** - clusters connected by single close points will merge.
+**Note**: Creates elongated clusters due to **chaining effect** 
+- clusters connected by single close points will merge.
 
-![center width:400px](./presentation_images/chaining_effect.png)
+![center width:450px](./presentation_images/chaining_effect.png)
 
 ---
 
-## Density-Based Clustering: DBSCAN
+## Density-Based Clustering
 
-Clusters are dense regions separated by sparse regions
+- Clusters are dense regions separated by sparse regions
 
-**Key parameters**:
-- $\epsilon$: Neighborhood radius
-- $\text{minPts}$: Minimum points to form cluster
+- Allows for clusters of arbitrary shape
 
-**Density**: $\rho_{\epsilon}(x) = |\{y \in X : d(x,y) \leq \epsilon\}|$
+**Factors**:
+- How is density estimated?
+- How is connectivity defined?
+
+**Examples**: DBSCAN, DENCLUE, OPTICS
 
 ---
 ## DBSCAN
@@ -256,39 +292,44 @@ Clusters are dense regions separated by sparse regions
 
 ---
 
-## Probabilistic Methods: Overview
+## Probabilistic model-based
 
-**Core idea**: Model data as generated from mixture of probability distributions
+Optimize the fit between observed data and some model using a probabilistic approach
 
-1. Assume each cluster follows a probability distribution $p(x | \theta_k)$
-2. Use Maximum Likelihood Estimation: $\max_{\theta} \prod_{i=1}^n p(x_i | \theta)$
-3. Apply Expectation-Maximization (EM) algorithm
-
-**Log-likelihood**: $\ell(\theta) = \sum_{i=1}^n \log \sum_{k=1}^K \pi_k p(x_i | \theta_k)$
+$$ \text{ Clustering } \rightarrow \text{ Parameter Estimation }$$
 
 ---
 
-## Expectation-Maximization (EM) Algorithm
+## Probabilistic Overview:
+Suppose the dataset $X$ consists of $N$ observations from a random variable $\mathbf{x}$ distributed via a mixture of $K$ components (clusters)
 
-**Problem**: Maximize likelihood with latent (hidden) variables
+The mixture distribution (pdf) of $x_n$ can be written as 
 
-**Setup**: 
-- Observed data: $X = \{x_1, \ldots, x_n\}$
-- Latent variables: $Z = \{z_1, \ldots, z_n\}$ 
-- Parameters: $\theta$
+$$ p(x_n) = \sum_{k=1}^{K} \pi_{k}p(x_n | \theta_k)$$
 
-**Objective**: $\max_{\theta} \ell(\theta) = \max_{\theta} \sum_{i=1}^n \log p(x_i | \theta)$
+Where $\pi_k$ are the mixing weights (sum to 1) and $\theta_k$ is the set of parameters for the $k^{\text{th}}$ component.
 
+---
+By Bayes' theorem we get:
+$$ p(z_{nk} = 1 | x_n) = \frac{\pi_k p(x_n | \theta_k)}{\sum_{j=1}^{K} \pi_{j}p(x_n | \theta_j )}$$
+where $z_{nk}$ is the membership of $x_n$ in cluster $k$
+
+---
+
+## Maximum Likelihood Estimation: 
+
+Considers the best estimate of parameters as one that maximizes probability of generating all observations:
+$$ \log p(\mathbf{X}| \mathbf{\Theta}) = \sum_{n=1}^{N}\log \sum_{k=1}^{K} \pi_k p(x_n | \theta_k)$$
+
+$$ \Theta_{\text{ML}} = \text{arg max}_{\Theta} \left\{ \log p(\mathbf{X} | \mathbf{\Theta})\right\} $$
 
 ---
 
 ## EM alternates between:
 
 **E-step**: Compute posterior distribution of latent variables
-$$Q(\theta | \theta^{(t)}) = \sum_{i=1}^n \sum_{z_i} p(z_i | x_i, \theta^{(t)}) \log p(x_i, z_i | \theta)$$
 
 **M-step**: Maximize expected complete log-likelihood
-$$\theta^{(t+1)} = \arg\max_{\theta} Q(\theta | \theta^{(t)})$$
 
 ---
 
@@ -296,11 +337,10 @@ $$\theta^{(t+1)} = \arg\max_{\theta} Q(\theta | \theta^{(t)})$$
 
 **Assumption**: Data generated from $K$ Gaussian distributions
 
-$$p(x) = \sum_{k=1}^{K} \pi_k \mathcal{N}(x; \mu_k, \Sigma_k)$$
+$$p(x) = \sum_{k=1}^{K} \pi_k \mathcal{N}(x| \mu_k, \Sigma_k)$$
 
-where $\mathcal{N}(x; \mu, \Sigma) = \frac{1}{(2\pi)^{d/2}|\Sigma|^{1/2}} \exp\left(-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu)\right)$
-
-**Parameters**: $\theta = \{(\pi_k, \mu_k, \Sigma_k)\}_{k=1}^K$ with $\sum_{k=1}^K \pi_k = 1$
+where 
+$$\mathcal{N}(x| \mu, \Sigma) = \frac{1}{(2\pi)^{d/2}|\Sigma|^{1/2}} \exp\left(-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu)\right)$$
 
 ---
 
@@ -321,39 +361,30 @@ $\Sigma_k = \frac{\sum_{i=1}^n r_{ik}(x_i - \mu_k)(x_i - \mu_k)^T}{\sum_{i=1}^n 
 
 ## Spectral Clustering
 
-1. **Graph construction**: $A_{ij} = \exp(-\|x_i - x_j\|^2 / 2\sigma^2)$ if $\|x_i - x_j\| < \epsilon$
-2. **Graph Laplacian**: $L = D - A$ where $D_{ii} = \sum_j A_{ij}$
-3. **Eigendecomposition**: Find eigenvectors $v_1, \ldots, v_k$ of smallest eigenvalues
-4. **Embedding**: Let $Y = [v_1 | \cdots | v_k] \in \mathbb{R}^{n \times k}$
-5. **Clustering**: Apply K-means to rows of $Y$
+1. Construct a similarity graph for all data points.
+2. Data points are embedded in a space where clusters are more obvious (aka Spectral Embedding)
+    - uses eigenvectors of the graph Laplacian
+3. A classical clustering algorithm like K-Means is applied to partition the embedding
 
 ---
-
-## Spectral Clustering Properties
-
-Transforms clustering into graph cut problem.
-
-**Normalized cut**: $\text{Ncut}(A,B) = \frac{\text{cut}(A,B)}{\text{vol}(A)} + \frac{\text{cut}(A,B)}{\text{vol}(B)}$
-
-where $\text{cut}(A,B) = \sum_{i \in A, j \in B} A_{ij}$ and $\text{vol}(A) = \sum_{i \in A} d_i$
-
-**Theorem**: Minimizing normalized cut is equivalent to finding eigenvectors of normalized Laplacian $\mathcal{L} = D^{-1/2}LD^{-1/2}$.
-
----
-
 
 ![center width:1050px](./presentation_images/spectral_clustering_steps.png)
 
 ---
 
+![center width:900](./presentation_images/spectral_intuition.png)
+
+---
+
 ## High-Dimensions
 
-**Curse of dimensionality**: In high dimensions ($d \gg n$):
-- All pairwise distances become similar: $\frac{\text{dist}_{\max} - \text{dist}_{\min}}{\text{dist}_{\min}} \to 0$
-- Volume concentrates in high-dimensional shells
-- Need dimension reduction or feature selection
+**Curse of dimensionality**:
+1. Any Global optimization approach increases computation exponentially with dimensions.
+2. Concentration effect: distance measure is less effective.
+3. More irrelevant attributes (dimensions) in clustering.
+4. Correlated attributes are redundant
+    - Intrensic dimensionality $<<$ Embedding dimensionality (number of features).
 
-**Concentration**: For Gaussian data, $\frac{\|x\|^2 - d}{\sqrt{2d}} \to \mathcal{N}(0,1)$
 
 ---
 
@@ -406,5 +437,3 @@ $$\text{Silhouette} = \frac{1}{n}\sum_{i=1}^{n} s_i \in [-1,1]$$
 
 # FIN
 
-Notes:
-- Update Spectral, Probabilistic, Co-Clustering and Curse of Dimensionality
