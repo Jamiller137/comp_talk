@@ -17,6 +17,14 @@
             buildInputs = with pkgs; [
               marp-cli
               nodejs
+              python313
+              uv
+              python313Packages.numpy
+              python313Packages.matplotlib
+              python313Packages.scikit-learn
+              python313Packages.scipy
+              python313Packages.seaborn
+              python313Packages.pip
             ];
 
             shellHook = ''
