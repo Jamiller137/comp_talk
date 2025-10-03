@@ -248,6 +248,28 @@ Use ascending regions of peaks to define **regions of influence** (= clusters).
 
 ---
 
+![bg contain](./presentation_images/slide01_original.png)
+
+---
+
+![bg contain](./presentation_images/slide02_PD_default.png)
+
+---
+
+
+
+![bg contain](./presentation_images/slide08_clusters_thresh_default.png)
+
+---
+
+![bg contain](./presentation_images/slide02_PD_default.png)
+
+---
+
+![bg contain](./presentation_images/slide03_clusters_default.png)
+
+---
+
 # Thresholding with $\tau$
 
 - Fix $\tau \ge 0$, keep only peaks with prominence $\ge \tau$.  
