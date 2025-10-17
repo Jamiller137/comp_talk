@@ -41,14 +41,14 @@ Clustering Algorithms we've seen:
 
 ---
 # Spectral Clustering
-## Core Idea:
+## Idea:
 
 1. Represent the data as a graph:
    - Nodes = points  
-   - Edges = similarity between points (e.g., Gaussian kernel, k-nearest neighbor)  
+   - Edges = similarity between points (e.g., Gaussian kernel, k-nearest neighbor, $\epsilon$-radius)  
 
 2. Build a **graph Laplacian** $L = D - W$
-   - $W$: affinity (adjacency) matrix  
+   - $W$: adjacency matrix
    - $D$: degree matrix, diagonal with $D_{ii} = \sum_j W_{ij}$
 
 ---
@@ -56,8 +56,14 @@ Clustering Algorithms we've seen:
 ## Graph Laplacian Properties
 
 - The Laplacian encodes **connectivity structure**.  
-- Small eigenvalues correspond to **well-separated partitions** of the graph.  
-    - The number of connected components = mult. of eigenvalue $\lambda = 0$.
+- $L$ decomposes as a block-diagonal matrix with a block for each connected component
+    - each block has eigenvalue 0 with multiplicity 1 
+    - Since this is an approximation of $L$ we look for a spectral gap to find $k$, the 
+    multiplicity of eigenvalue 0.
+
+---
+## Example
+![center width:830px](./spectral_clustering_nonconvex.png)
 
 ---
 
@@ -85,10 +91,10 @@ Clustering Algorithms we've seen:
 
 # Review of Density-based:
 
-## Core Assumption
+## Assumption:
 
 - Data points are drawn from some **unknown density** $f(x)$.  
-- Clustering = understanding the structure of $f$.
+    - Clustering = understanding the structure of $f$.
 
 ---
 
@@ -104,21 +110,25 @@ $$
 - Connected components of $F^\alpha$ → clusters.  
 - Points outside → treated as noise.
 
+Think: DBSCAN
+
+---
+
 ## Problems
 
 - Fixed threshold $\alpha$:  
-  - Struggles with hierarchical multi-scale structures.  
-  - Different densities in sub-clusters can be missed.  
+  - Struggles with multi-scale structures.  
+  - Different densities in sub-clusters can also be missed.  
 
 ---
 
 # Mode-Seeking Clustering:
 
-## Core Idea
+## Idea
 
 - Detect **local peaks** of the density function $f(x)$.  
 - Use peaks as **cluster centers**.  
-- Each data point $\to$ assigned to the basin of attraction of a peak.  
+    - Each data point $\to$ assigned to the basin of attraction of a peak.  
 
 $$
 B_p = \{ x \;|\; \text{hill-climb from } x \text{ leads to peak } p \}
@@ -127,17 +137,19 @@ $$
 ---
 
 
-# Mode-Seeking Clustering Methods:
+## Recap:
   - Density thresholding via $F^\alpha$ finds *high-density regions*.  
   - Mode-seeking instead finds *density peaks*.  
+
+---
 
 ## Issues
 
 - Gradients and density maxima are **unstable** in high-dim / sparse data.  
 - Mode-seeking depends heavily on density estimator.  
-- **Mean-Shift** (Comaniciu & Meer 2002): smooths the estimator before hill-climbing.  
-  - Too little smoothing $\to$ noise, too many spurious peaks.  
-  - Too much smoothing $\to$ loses clusters.  
+    - **Mean-Shift** (Comaniciu & Meer 2002): smooths the estimator before hill-climbing.  
+        - Too little smoothing $\to$ noise, too many noisy peaks.  
+        - Too much smoothing $\to$ loses meaningful clusters.  
 
 ---
 
@@ -147,6 +159,8 @@ $$
 ---
 
 # Motivation
+
+Is a combination of the following:
 
 - **Mode-seeking (e.g. Mean-Shift):**  
   Finds peaks of a density function $f(x)$ but is **unstable** due to noise in $f$.
@@ -197,15 +211,14 @@ as $\alpha$ decreases from $+\infty$ to $-\infty$.
 2. Compute persistence diagram of $\tilde{f}$ (estimated density).  
 3. Choose threshold $\tau$:  
    - Merge clusters with persistence $< \tau$ into their parent.  
-4. Result: stable clustering, guided by persistence.  
 
 ---
 
 # Relationships of ToMATo with Other Methods
 
-- **Mode-seeking:** still looks for peaks, but uses persistence to filter out unstable ones.  
-- **Density-based:** instead of fixed $\alpha$, persistence adaptively selects significant density modes.  
-- **Spectral:** both link parameter choices to *number of clusters*.  
+- **Mode-seeking:** ToMATo still looks for peaks, but uses persistence to filter out unstable ones.  
+- **Density-based:** instead of a fixed $\alpha$, ToMATo uses persistence adaptively selects significant density modes.  
+- **Spectral:** both link parameter choices to *number of clusters*. Spectral gap vs Persisistence.
 
 ---
 
@@ -221,7 +234,7 @@ Use ascending regions of peaks to define **regions of influence** (= clusters).
 
 # Persistence in Superlevel-Sets
 
-- Define *superlevel sets*:  
+- *Superlevel Sets*:  
   $$
   F^\alpha = f^{-1}([\alpha, +\infty))
   $$
@@ -230,6 +243,10 @@ Use ascending regions of peaks to define **regions of influence** (= clusters).
   - new components **born** when a peak $m_p$ enters $F^\alpha$ ($\alpha = f(m_p)$),  
   - components **die** when merging into higher peak’s component.  
 
+---
+
+# Persistence in Superlevel-Sets
+
 - Prominence of peak $m_p$:  
   $$
   \text{Prom}(m_p) = f(m_p) - d(m_p)
@@ -237,7 +254,7 @@ Use ascending regions of peaks to define **regions of influence** (= clusters).
 
 ---
 
-# Persistence Diagram ($H_0$)
+# Persistence Diagram for Connected Components ($H_0$)
 
 - Each peak $\; m_p \;$ represented as point $(x,y)$:  
   - $x =$ birth = peak height $f(m_p)$  
@@ -272,7 +289,8 @@ Use ascending regions of peaks to define **regions of influence** (= clusters).
 
 # Thresholding with $\tau$
 
-- Fix $\tau \ge 0$, keep only peaks with prominence $\ge \tau$.  
+- Fix $\tau \ge 0$ 
+    - keep only peaks with prominence $\ge \tau$.  
 - For any peak $m_q$, iteratively map roots to more prominent peaks until one with prominence $\ge \tau$.  
 - Define **basin of attraction**:  
 
@@ -302,7 +320,9 @@ $$
   - If a neighbor $j$ has $\tilde f(j) > \tilde f(i)$ → connect $i \to j$ (pseudo-gradient).  
   - If no higher neighbor → $i$ is a **peak**.  
 
-- Result: a spanning forest; each tree $\approx$ ascending region of a peak.
+ 
+*Result*: a spanning forest
+- each tree $\approx$ ascending region of a peak.
 
 ---
 
@@ -317,7 +337,7 @@ $$
   $$
   \min\{\tilde f(r(e)), \tilde f(r(e_i))\} < \tilde f(i) + \tau
   $$  
-  If yes → merge; lower peak merges into higher one.  
+  If yes → merge (lower peak merges into higher one).
 
 ---
 
@@ -362,10 +382,16 @@ $$
 
 # Setup
 
-- Space: $X$ = $m$-dimensional Riemannian manifold (positive convexity radius).  
-- Density: $f : X \to \mathbb{R}$, Lipschitz-continuous, sampled i.i.d.  
-- Graph: $\delta$-Rips graph $G$ on point cloud $P$.  
-- Persistence diagram $D^0_f$ summarizes peaks (signal) vs noise.  
+Given:
+
+- Space: 
+    - $X$ = $m$-dimensional Riemannian manifold.  
+    - Positive Convexity Radius
+- Density:
+    - $f : X \to \mathbb{R}$ Lipschitz-continuous 
+    - sampled i.i.d.
+- Graph: 
+    - $\delta$-Rips graph $G$ on point cloud $P$.  
 
 ---
 
@@ -383,7 +409,7 @@ $$
 
 # Result 1: Correct Number of Clusters
 
-**Theorem 9.2 (informally):**  
+**Theorem 9.2 (informal):**  
 If $D^0_f$ is $(d_1,d_2)$-separated and $\delta$ is sufficiently small,  
 then there exists a range of $\tau$:  
 
@@ -401,7 +427,7 @@ with probability at least $1 - e^{-\Omega(n)}$.
 
 # Result 2: Approximation of Basins
 
-**Theorem 10.1 (informally):**
+**Theorem 10.1 (informal):**
 
 - For each prominent peak $m_p$ of $f$:  
   ToMATo outputs a cluster $C$ that coincides (over $P$)  
@@ -412,37 +438,46 @@ with probability at least $1 - e^{-\Omega(n)}$.
 
 - Below this range, basins may become unstable.  
 
-**Interpretation:**  
 Top parts of basins are **stable under perturbations**,  
 so the algorithm captures the reliable parts of clusters.  
 
 ---
 
-# Stability Intuition
+# Example: 
 
-- **Persistence diagrams are stable** under perturbations of $f$.  
-  - Prominent peaks survive across runs.  
-  - Small bumps map to diagonal (noise).  
-
-- In practice:  
-  - Run ToMATo multiple times with perturbed densities.  
-  - Compare outputs → measure **classification stability** for each point.  
+![center width:630px](./presentation_images/slide01_original.png)
 
 ---
 
-# Notes:
-
-- Prominence gap $d_2 - d_1$ acts like a **spectral gap** in spectral clustering.  
-- Guarantees link:  
-  - Input sampling density  
-  - Graph resolution $\delta$  
-  - Threshold $\tau$  
-  - Output clusters.  
-
-- Theoretical results are **probabilistic** due to random sampling,  
-but the algorithm itself is deterministic.  
+# Density Estimate:
+![center width:650px](./presentation_images/slide05_density_DTM.png)
 
 ---
+
+
+# First run:
+
+![center width:530px](./presentation_images/slide04_PD_DTM.png)
+
+---
+
+# Result:
+
+![center width:530px](./presentation_images/slide10_clusters_thresh_DTM.png)
+
+---
+
+# Threshold:
+
+![center width:530px](./presentation_images/slide09_PD_thresh_DTM.png)
+
+---
+
+![center width:730px](./presentation_images/slide03_clusters_default.png)
+
+---
+
+
 
 # Thank You 
 ### GUDHI ToMATo Implementation  
